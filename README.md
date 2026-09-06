@@ -2,8 +2,8 @@
 
 음악 · 공연 · 예술 전공생, 그리고 개발자를 위한 원페이지 포트폴리오 템플릿. `index.html` 파일 하나, 빌드 도구 없음, GitHub Pages 에 바로 올라감.
 
-데모: https://tacky705.github.io/porfolio_example/ (음악 전공 버전)
-개발자 버전: https://tacky705.github.io/porfolio_example/developer.html
+데모: https://tacky705.github.io/portfolio_example/ (음악 전공 버전)
+개발자 버전: https://tacky705.github.io/portfolio_example/developer.html
 
 ## 두 가지 버전
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Template — 음악·예술 전공 원페이지 포트폴리오</title>
-<meta name="description" content="음악·공연·예술 전공생용 원페이지 포트폴리오 템플릿. index.html 하나로 GitHub Pages 배포.">
+<title>Portfolio Template — 원페이지 포트폴리오</title>
+<meta name="description" content="개발자·엔지니어용 원페이지 포트폴리오 템플릿. index.html 하나로 GitHub Pages 배포.">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
@@ -433,11 +433,10 @@ body{min-width:0}
 
 <!--
   ┌──────────────────────────────────────────────────────────────┐
-  │  포트폴리오 템플릿 (음악 · 공연 · 예술 전공용) — 사용법           │
-  │  1. 예시 텍스트(홍길동 · 예시대학교 · 작품명 · 숫자)를 본인 것으로 교체 │
+  │  포트폴리오 템플릿 — 사용법                                    │
+  │  1. 아래 본문의 예시 텍스트(홍길동 · 예시 회사 · 숫자)를 본인 것으로 교체 │
   │  2. photo-slot div 를 <img src="..."> 로 교체하면 사진 표시     │
-  │  3. "대표 영상" 자리는 YouTube 공유 → 퍼가기 <iframe> 코드로 교체 │
-  │  4. GitHub 에 push → Settings › Pages › Branch: main 선택       │
+  │  3. GitHub 에 push → Settings › Pages › Branch: main 선택       │
   │  섹션 통째로 지워도 레이아웃 안 깨짐. 색상은 <style> 의 :root 변수. │
   └──────────────────────────────────────────────────────────────┘
 -->
@@ -448,9 +447,9 @@ body{min-width:0}
     <nav class="menu" id="menu">
       <a href="#about">About</a>
       <a href="#featured">Featured</a>
-      <a href="#experience">Performances</a>
-      <a href="#projects">Activities</a>
-      <a href="#certs">Awards</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certs">Certifications</a>
       <a href="#skills">Skills</a>
     </nav>
     <a href="#contact" class="nav-cta">Contact</a>
@@ -465,21 +464,21 @@ body{min-width:0}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="hero-badge">예시대학교 음악대학 · 피아노 전공 4학년</div>
-        <h1>무대 위에서<br>이야기를 전하는<br><span class="hl">피아니스트, 홍길동</span>입니다</h1>
+        <div class="hero-badge">현재 소속 · 직무를 한 줄로</div>
+        <h1>한 문장으로 설명하는<br>나의 전문성<br><span class="hl">이름, 홍길동</span>입니다</h1>
         <p class="lead">
-          <b>정기연주회 12회</b>에 올랐고, <b>전국 콩쿠르 1위</b>를 수상했으며,
-          지금은 <b>자작곡 EP 발매</b>와 앙상블 활동을 병행하고 있습니다.
+          <b>가장 임팩트 있는 성과 1</b>을 만들었고, <b>가장 임팩트 있는 성과 2</b>를 했으며,
+          지금은 예시 회사에서 <b>현재 담당 업무의 규모</b>를 다루고 있습니다.
         </p>
         <div class="hero-actions">
-          <a href="#featured" class="btn btn-green">대표 연주 보기</a>
-          <a href="#contact" class="btn btn-ghost">섭외 · 레슨 문의</a>
+          <a href="#contact" class="btn btn-green">연락하기</a>
+          <a href="#featured" class="btn btn-ghost">대표 경험 보기</a>
         </div>
         <div class="hero-keywords">
-          <span>Classical · Jazz</span>
-          <span>Piano · Composition</span>
-          <span>Chamber · Solo</span>
-          <span>Logic Pro</span>
+          <span>핵심 키워드 1</span>
+          <span>핵심 키워드 2</span>
+          <span>핵심 키워드 3</span>
+          <span>언어 · 자격 등</span>
         </div>
       </div>
       <div class="hero-photo">
@@ -487,11 +486,11 @@ body{min-width:0}
         <div class="photo-slot on-dark">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
           <div class="ps-label">프로필 사진</div>
-          <div class="ps-hint">프로필 · 무대 사진 · 세로형 권장 (약 800×920px)</div>
+          <div class="ps-hint">정면 상반신 · 세로형 권장 (약 800×920px)</div>
         </div>
         <div class="float-chip">
-          <b>1st Prize</b>
-          <span>2025 전국 피아노 콩쿠르</span>
+          <b>Award</b>
+          <span>자랑할 수상 · 장학 1개</span>
         </div>
       </div>
     </div>
@@ -503,24 +502,24 @@ body{min-width:0}
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat reveal">
-        <div class="num"><em data-count="32">0</em></div>
-        <div class="label">무대 경험</div>
-        <div class="sub">독주 · 협연 · 앙상블 합산</div>
+        <div class="num"><em data-count="12">0</em></div>
+        <div class="label">담당 시스템 수</div>
+        <div class="sub">숫자로 말할 수 있는 규모 1</div>
       </div>
       <div class="stat reveal">
-        <div class="num"><em data-count="4800">0</em>+</div>
-        <div class="label">누적 관객</div>
-        <div class="sub">공연장 좌석 기준 합산</div>
+        <div class="num"><em data-count="10000">0</em>+</div>
+        <div class="label">서비스 사용자</div>
+        <div class="sub">숫자로 말할 수 있는 규모 2</div>
       </div>
       <div class="stat reveal">
-        <div class="num"><em data-count="6">0</em></div>
-        <div class="label">발표 작품</div>
-        <div class="sub">자작곡 · 편곡 · 음원 발매</div>
+        <div class="num"><em data-count="8">0</em></div>
+        <div class="label">완료 프로젝트</div>
+        <div class="sub">숫자로 말할 수 있는 규모 3</div>
       </div>
       <div class="stat reveal">
-        <div class="num"><em data-count="5">0</em></div>
-        <div class="label">수상</div>
-        <div class="sub">콩쿠르 · 공모전 입상</div>
+        <div class="num"><em data-count="300">0</em>+</div>
+        <div class="label">커뮤니티 참가자</div>
+        <div class="sub">숫자로 말할 수 있는 규모 4</div>
       </div>
     </div>
   </div>
@@ -531,39 +530,39 @@ body{min-width:0}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-tag">About Me</span>
-      <h2 class="sec-title">악보 너머의 이야기를<br>찾아내는 연주자</h2>
+      <h2 class="sec-title">나를 한 줄로 정의하는<br>헤드라인을 여기에</h2>
     </div>
     <div class="about-grid">
       <ul class="about-summary reveal">
-        <li><span><b>7세에 피아노를 시작</b>해 클래식으로 기초를 다졌고, 대학에서 재즈 화성과 작곡을 함께 공부하고 있습니다.</span></li>
-        <li><span>정기연주회·졸업연주회를 포함해 <b>32회 무대</b>에 섰고, 2025 전국 피아노 콩쿠르에서 <b>1위</b>를 수상했습니다.</span></li>
-        <li><span>현악 4중주와의 <b>피아노 5중주 협연</b>, 성악 반주, 뮤지컬 밴드 세션 등 장르를 넘나드는 앙상블 경험이 있습니다.</span></li>
-        <li><span>자작곡 EP <b>"제목 예시"</b>(6곡)를 작곡·편곡·믹싱까지 직접 맡아 발매했습니다.</span></li>
-        <li><span>초·중등 학생 <b>레슨 3년</b>, 유튜브 연주 채널 운영 — 연주만큼 전달하는 일을 좋아합니다.</span></li>
+        <li><span><b>강점 1</b> — 어떤 기술 배경과 소프트 스킬을 함께 갖췄는지 한 문장.</span></li>
+        <li><span>가장 큰 성취 — <b>숫자와 고유명사</b>가 들어간 한 문장. 예: 1만 명이 쓰는 서비스를 팀 리더로 출시.</span></li>
+        <li><span>현재 회사에서 <b>무엇을 실무로 경험</b>했는지, 이전 회사에서는 무엇을 했는지.</span></li>
+        <li><span>기술 밖 활동 — 커뮤니티 운영, 창업, 동아리 등 <b>사람을 움직인 경험</b>.</span></li>
+        <li><span>일하는 방식 — 학습 태도, 문제 접근 방식을 보여주는 한 문장.</span></li>
       </ul>
       <div class="about-side reveal">
         <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
         <div class="photo-slot">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-          <div class="ps-label">연습실 · 무대 뒤 사진</div>
-          <div class="ps-hint">일상 · 리허설 · 공연 후 (가로형 16:9)</div>
+          <div class="ps-label">활동 사진</div>
+          <div class="ps-hint">일상 · 발표 · 취미 등 자유 (가로형 16:9)</div>
         </div>
         <div class="info-card">
           <h4>Education</h4>
-          <div class="big">예시대학교 음악대학 피아노과</div>
-          <p>2022.03 ~ 재학 중 · <b>성적우수 장학</b><br>예시예술고등학교 졸업 (2022)</p>
+          <div class="big">예시대학교 예시학과</div>
+          <p>단과대학 · 2021.03 ~ 재학 중 · <b>수상 · 장학</b><br>주요 수강 과목 1 · 과목 2 · 과목 3</p>
         </div>
         <div class="info-card">
-          <h4>Teachers</h4>
-          <div class="big">사사 · 마스터클래스</div>
-          <p>홍교수 사사 (2022~) · 김교수 사사 (2019~2022)<br>2024 예시 국제 마스터클래스 수료</p>
+          <h4>Military Service</h4>
+          <div class="big">복무 구분 · 소속</div>
+          <p>부대 또는 기관명<br>2021.11 ~ 2024.05 만기전역</p>
         </div>
         <div class="info-card">
-          <h4>Instruments · Languages</h4>
+          <h4>Languages</h4>
           <div class="lang-row">
-            <span>Piano <b>Main</b></span>
-            <span>Vocal <b>Sub</b></span>
-            <span>English Business</span>
+            <span>한국어 <b>Native</b></span>
+            <span>English <b>Business</b></span>
+            <span>日本語 Basic</span>
           </div>
         </div>
       </div>
@@ -571,295 +570,287 @@ body{min-width:0}
   </div>
 </section>
 
-<!-- ============ Featured Work ============ -->
+<!-- ============ Featured Experience ============ -->
 <section class="featured" id="featured">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-tag">Featured — 대표 작품</span>
-      <h2 class="sec-title">가장 보여주고 싶은 무대 하나를<br>영상과 함께 크게</h2>
-      <p class="sec-desc">독주회, 협연, 앨범, 전시 — 대표작 하나를 골라 어떤 자리에서, 어떤 프로그램으로, 어떤 반응을 얻었는지.</p>
+      <span class="sec-tag">Featured — 예시 회사</span>
+      <h2 class="sec-title">가장 보여주고 싶은 경험 하나를<br>숫자와 함께 크게</h2>
+      <p class="sec-desc">대표 경험을 한 문단으로. 어떤 조직에서, 어떤 역할로, 어떤 규모의 일을 했는지.</p>
     </div>
 
     <div class="featured-intro reveal">
-      <div class="role">2025 독주회 — <em>"제목 예시: 밤의 변주"</em></div>
-      <div class="period">2025.11.14 · 예시아트홀 (서울) · 러닝타임 80분</div>
+      <div class="role">예시 회사 — <em>직무명</em></div>
+      <div class="period">2025.07 ~ 재직 중 · 소속 팀</div>
       <p>
-        베토벤 소나타 No.23 "열정", 쇼팽 발라드 No.1, 자작곡 3곡으로 구성한 첫 단독 독주회.
-        기획·프로그램 구성·홍보·무대 진행까지 직접 맡았고, 객석 320석 중 290석이 찼습니다.
+        담당 고객 또는 서비스 A · B · C · D 의 기술 이슈를 전문성과 도메인 지식 기반으로 해결합니다.
+        핵심 기술 1 · 핵심 기술 2 · 핵심 기술 3 · 규제 또는 프로세스 대응까지, 업무의 전 범위를 다룹니다.
       </p>
       <div class="featured-metrics">
-        <div><b>290</b>관객</div>
-        <div><b>80분</b>러닝타임</div>
-        <div><b>9곡</b>프로그램</div>
-        <div><b>3곡</b>자작곡 초연</div>
+        <div><b>12</b>담당 시스템</div>
+        <div><b>99.9%</b>가용성 SLA</div>
+        <div><b>2 TB</b>최대 인스턴스</div>
+        <div><b>2 Clouds</b>멀티 클라우드</div>
       </div>
     </div>
 
     <div class="featured-photo reveal">
-      <!--
-        대표 영상 교체: 아래 photo-slot div 전체를 YouTube 퍼가기 코드로 교체.
-        YouTube 영상 → 공유 → 퍼가기 → 복사. 예:
-        <iframe width="100%" style="aspect-ratio:21/7;border:0;border-radius:20px"
-          src="https://www.youtube.com/embed/영상ID" title="대표 연주"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-        SoundCloud · Spotify 임베드도 같은 방식.
-      -->
+      <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
       <div class="photo-slot on-dark">
         <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-        <div class="ps-label">대표 영상 (YouTube iframe 으로 교체)</div>
-        <div class="ps-hint">공연 실황 · 뮤직비디오 · 포스터 (와이드 21:7)</div>
+        <div class="ps-label">업무 사진 / 아키텍처 다이어그램</div>
+        <div class="ps-hint">오피스 · 발표 · 구성도 등 (와이드 21:7)</div>
       </div>
     </div>
 
     <div class="cust-grid">
       <div class="cust b-blue reveal">
         <div class="cust-top">
-          <div class="cust-name">Program I</div>
-          <span class="cust-cid cid-blue">CLASSICAL · 3 PIECES</span>
+          <div class="cust-name">고객사 A</div>
+          <span class="cust-cid cid-blue">CLOUD · 4 SYSTEMS</span>
         </div>
-        <div class="env">베토벤 · 쇼팽 — 1부 40분</div>
+        <div class="env">환경 요약 — 제품 버전 · 리전 · DR 구성</div>
         <ul>
-          <li>베토벤 피아노 소나타 No.23 "열정" <b>전악장</b></li>
-          <li>쇼팽 발라드 No.1 g단조 Op.23</li>
-          <li>페달링·다이내믹 해석 포인트 한 줄</li>
-          <li>준비 기간 · 연습 방식 한 줄</li>
+          <li>성과 한 줄 — <b>숫자</b>가 들어가면 좋음</li>
+          <li>운영 또는 안정화 경험 한 줄</li>
+          <li>연동 · 구성 경험 한 줄</li>
+          <li>기한 대비 <b>조기 완료</b> 같은 결과 한 줄</li>
         </ul>
       </div>
       <div class="cust b-orange reveal">
         <div class="cust-top">
-          <div class="cust-name">Program II</div>
-          <span class="cust-cid cid-orange">ORIGINAL · 3 PIECES</span>
+          <div class="cust-name">고객사 B</div>
+          <span class="cust-cid cid-orange">CLOUD · 3 SYSTEMS</span>
         </div>
-        <div class="env">자작곡 초연 — 2부 30분</div>
+        <div class="env">환경 요약 — 멀티 리전 병렬 구성</div>
         <ul>
-          <li>자작곡 3곡 <b>세계 초연</b> — 제목 · 제목 · 제목</li>
-          <li>작곡 동기와 구성(형식·조성) 한 줄</li>
-          <li>현악 4중주와 협연한 곡 한 줄</li>
-          <li>관객 반응 · 앵콜 여부 한 줄</li>
+          <li><b>특이한 아키텍처</b> 운영 경험 한 줄</li>
+          <li>최상급 스펙 인스턴스 다룬 경험 한 줄</li>
+          <li>일괄 배포 패턴 정립 등 표준화 한 줄</li>
+          <li>이슈 전건 조치 완료 같은 결과 한 줄</li>
         </ul>
       </div>
       <div class="cust b-pink reveal">
         <div class="cust-top">
-          <div class="cust-name">기획 · 홍보</div>
-          <span class="cust-cid cid-pink">PRODUCTION</span>
+          <div class="cust-name">고객사 C</div>
+          <span class="cust-cid cid-pink">CLOUD · 2 SYSTEMS</span>
         </div>
-        <div class="env">포스터 · 티켓 · SNS 홍보 직접 운영</div>
+        <div class="env">환경 요약 — 규제 인증 환경 · VPN</div>
         <ul>
-          <li>포스터 · 프로그램북 <b>직접 디자인</b></li>
-          <li>인스타그램 릴스 6편으로 예매 유도 — 조회 1.2만</li>
-          <li>대관 · 조율 · 음향 · 촬영 섭외 한 줄</li>
-          <li>예산 규모와 회수율 한 줄</li>
+          <li><b>컴플라이언스</b>를 준수한 변경 관리 한 줄</li>
+          <li>고부하 환경 운영 한 줄</li>
+          <li>업그레이드 로드맵 준비 한 줄</li>
+          <li>리스크 관리 한 줄</li>
         </ul>
       </div>
       <div class="cust b-green reveal">
         <div class="cust-top">
-          <div class="cust-name">리뷰 · 반응</div>
-          <span class="cust-cid cid-green">FEEDBACK</span>
+          <div class="cust-name">고객사 D</div>
+          <span class="cust-cid cid-green">CLOUD · 3 SYSTEMS</span>
         </div>
-        <div class="env">교수 · 관객 · 언론 코멘트</div>
+        <div class="env">환경 요약 — 이관 프로젝트 · 24×7</div>
         <ul>
-          <li>"인용문 한 줄" — <b>홍교수</b></li>
-          <li>관객 설문 만족도 4.8 / 5 (응답 120명)</li>
-          <li>학내 신문 · 지역 매체 기사 한 줄</li>
-          <li>이후 이어진 섭외 · 협연 제안 한 줄</li>
+          <li><b>영어 전용</b> 협업 등 커뮤니케이션 경험 한 줄</li>
+          <li>마이그레이션 이후 안정화 한 줄</li>
+          <li>인증서 · 로드밸런서 관리 한 줄</li>
+          <li>인시던트 학습 → <b>재발 방지 체계</b> 한 줄</li>
         </ul>
       </div>
     </div>
 
     <div class="featured-achieve reveal">
-      <h3>이 무대에서 얻은 것 — <em>연주자이자 기획자</em></h3>
+      <h3>핵심 성과 — <em>한 줄 슬로건</em></h3>
       <div class="achieve-grid">
         <div class="achieve">
-          <b>해석의 성장</b>
-          <p>어떤 곡에서 어떤 해석을 시도했고, 사사 교수와 어떤 방향으로 다듬었는지 두세 문장으로.</p>
+          <b>성과 제목 1</b>
+          <p>무엇을(과제), 어떻게(방법), 결과가 어땠는지(수치·기한)를 두세 문장으로.</p>
         </div>
         <div class="achieve">
-          <b>기획 역량</b>
-          <p>대관부터 홍보·정산까지 혼자 굴려본 경험과, 다음 공연에 적용할 개선점 한 줄.</p>
+          <b>성과 제목 2</b>
+          <p>표준 절차를 만든 경험 — 이후 인시던트 0건 같은 결과 수치와 함께.</p>
         </div>
         <div class="achieve">
-          <b>창작으로 확장</b>
-          <p>연주에서 작곡·편곡으로 영역을 넓힌 계기와, 초연 이후 음원화 계획 한 줄.</p>
+          <b>성과 제목 3</b>
+          <p>서로 다른 조건의 여러 일을 병렬로 관리한 경험과 그 결과.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ Performances & Works ============ -->
+<!-- ============ Work Experience ============ -->
 <section id="experience">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-tag">Performances & Works</span>
-      <h2 class="sec-title">무대와 작품 이력</h2>
-      <p class="sec-desc">독주, 협연, 앨범, 세션 — 다른 무대, 같은 태도로 준비했습니다.</p>
+      <span class="sec-tag">Work Experience</span>
+      <h2 class="sec-title">현장에서 쌓아온 경험</h2>
+      <p class="sec-desc">경력을 관통하는 한 문장 — 다른 환경, 같은 태도로 일했다는 식의 메시지.</p>
     </div>
     <div class="exp-grid">
       <div class="exp t-blue reveal">
         <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
         <div class="photo-slot">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-          <div class="ps-label">협연 실황 사진</div>
-          <div class="ps-hint">무대 · 리허설 (가로형)</div>
+          <div class="ps-label">회사 1 업무 사진</div>
+          <div class="ps-hint">오피스 · 팀 · 발표 등 (가로형)</div>
         </div>
         <div class="exp-body">
-          <span class="exp-tag tag-blue">Concerto</span>
-          <h3>예시 시립교향악단 협연</h3>
-          <div class="role">피아노 솔리스트</div>
-          <div class="period">2025.05 · 예시문화예술회관</div>
+          <span class="exp-tag tag-blue">산업군</span>
+          <h3>회사 1</h3>
+          <div class="role">직무명</div>
+          <div class="period">2025.07 ~ 재직 중</div>
           <ul>
-            <li>모차르트 피아노 협주곡 No.21 — <b>객석 1,200석</b> 정기연주회</li>
-            <li>지휘자 · 오케스트라와 리허설 3회, 카덴차 직접 편곡</li>
-            <li>학내 협연 오디션 1위로 선발</li>
+            <li>담당 업무 한 줄 — 누구를 위해 무엇을</li>
+            <li>다룬 기술 스택과 그 활용 방식 한 줄</li>
+            <li>표준 운영 업무 · 반복 성과 한 줄</li>
           </ul>
-          <div class="stack"><span>Mozart</span><span>Concerto</span><span>Orchestra</span><span>Cadenza</span></div>
+          <div class="stack"><span>기술 1</span><span>기술 2</span><span>기술 3</span><span>도구 1</span><span>도구 2</span></div>
         </div>
       </div>
       <div class="exp t-orange reveal">
         <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
         <div class="photo-slot">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-          <div class="ps-label">앨범 커버 · 스튜디오 사진</div>
-          <div class="ps-hint">커버 아트 · 녹음 현장 (가로형)</div>
+          <div class="ps-label">회사 2 대시보드 · 결과물 캡처</div>
+          <div class="ps-hint">스크린샷 · 도식 (가로형)</div>
         </div>
         <div class="exp-body">
-          <span class="exp-tag tag-orange">Release</span>
-          <h3>EP "제목 예시"</h3>
-          <div class="role">작곡 · 편곡 · 피아노 · 믹싱</div>
-          <div class="period">2025.02 발매 · 6곡</div>
+          <span class="exp-tag tag-orange">산업군</span>
+          <h3>회사 2</h3>
+          <div class="role">직무명 (인턴)</div>
+          <div class="period">2025.02 ~ 2025.03</div>
           <ul>
-            <li>Logic Pro 로 작곡·편곡, 홈 스튜디오 녹음, <b>믹싱까지 직접</b></li>
-            <li>Spotify · Apple Music · 멜론 유통 — 누적 스트리밍 수치</li>
-            <li>타이틀곡 뮤직비디오 유튜브 조회 수치</li>
+            <li><b>규모가 드러나는 숫자</b>와 함께 설계·구축 경험 한 줄</li>
+            <li>모니터링 · 자동화 등 운영 개선 한 줄</li>
+            <li>재현 가능한 체계를 만든 경험 한 줄</li>
           </ul>
-          <div class="stack"><span>Logic Pro</span><span>Composition</span><span>Mixing</span><span>Distribution</span></div>
+          <div class="stack"><span>기술 1</span><span>기술 2</span><span>기술 3</span><span>도구 1</span></div>
         </div>
       </div>
       <div class="exp t-pink reveal">
         <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
         <div class="photo-slot">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-          <div class="ps-label">앙상블 공연 사진</div>
-          <div class="ps-hint">무대 (가로형)</div>
+          <div class="ps-label">프로젝트 3 메인 화면 캡처</div>
+          <div class="ps-hint">스크린샷 (가로형)</div>
         </div>
         <div class="exp-body">
-          <span class="exp-tag tag-pink">Chamber</span>
-          <h3>예시 피아노 5중주단</h3>
-          <div class="role">피아노 · 창단 멤버</div>
-          <div class="period">2023.09 ~ 현재</div>
+          <span class="exp-tag tag-pink">조직 유형</span>
+          <h3>조직 3</h3>
+          <div class="role">팀 리더 · 개발자</div>
+          <div class="period">2023.11 ~ 2024.05</div>
           <ul>
-            <li>현악 4중주와 <b>정기공연 4회</b>, 슈만 · 드보르자크 5중주</li>
-            <li>지역 문화재단 청년예술가 지원사업 선정</li>
-            <li>학교 · 병원 · 도서관 찾아가는 음악회 6회</li>
+            <li><b>사용자 규모</b>가 드러나는 서비스를 기획·개발·배포한 경험</li>
+            <li>이해관계자와 협업해 검증한 과정 한 줄</li>
+            <li>수상 · 표창 등 인정받은 결과 한 줄</li>
           </ul>
-          <div class="stack"><span>Schumann</span><span>Dvořák</span><span>Ensemble</span><span>Outreach</span></div>
+          <div class="stack"><span>언어 1</span><span>프레임워크</span><span>클라우드</span></div>
         </div>
       </div>
       <div class="exp t-green reveal">
         <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
         <div class="photo-slot">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-          <div class="ps-label">뮤지컬 · 세션 현장 사진</div>
-          <div class="ps-hint">피트 · 밴드 (가로형)</div>
+          <div class="ps-label">조직 4 파이프라인 / 제품 화면</div>
+          <div class="ps-hint">도식 · 스크린샷 (가로형)</div>
         </div>
         <div class="exp-body">
-          <span class="exp-tag tag-green">Session</span>
-          <h3>뮤지컬 "제목 예시" 밴드</h3>
-          <div class="role">키보드 세션 · 음악조감독</div>
-          <div class="period">2024.06 ~ 2024.08 · 총 24회 공연</div>
+          <span class="exp-tag tag-green">스타트업</span>
+          <h3>조직 4</h3>
+          <div class="role">인턴 · 초기 멤버</div>
+          <div class="period">2021.08 ~ 2021.11</div>
           <ul>
-            <li>대학 연합 뮤지컬 <b>24회 공연</b> 키보드 세션</li>
-            <li>보컬 · 앙상블 음악 연습 지도, 편곡 보조</li>
-            <li>공연 실황 녹음 · 편집 참여</li>
+            <li>초기 팀 합류 — 무엇을 구축했는지 한 줄</li>
+            <li>데이터 수집 · 파이프라인 등 구체 작업 한 줄</li>
+            <li>평가 · 등급 등 <b>결과</b> 한 줄</li>
           </ul>
-          <div class="stack"><span>Keyboard</span><span>Musical</span><span>Vocal Coaching</span></div>
+          <div class="stack"><span>언어</span><span>라이브러리 1</span><span>라이브러리 2</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ Activities ============ -->
+<!-- ============ Projects & Activities ============ -->
 <section class="projects" id="projects">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-tag">Activities</span>
-      <h2 class="sec-title">무대 밖에서도 음악을 합니다</h2>
-      <p class="sec-desc">가르치고, 기록하고, 사람을 모으는 일 — 연주를 더 멀리 보내는 활동들.</p>
+      <span class="sec-tag">Projects & Activities</span>
+      <h2 class="sec-title">기술 밖에서도 움직입니다</h2>
+      <p class="sec-desc">커뮤니티 운영, 창업, 스포츠 — 사람을 모으고 무언가를 끝까지 굴려본 경험들.</p>
     </div>
     <div class="proj-grid">
       <div class="proj reveal">
         <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
         <div class="photo-slot">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-          <div class="ps-label">유튜브 채널 썸네일</div>
-          <div class="ps-hint">채널 아트 · 영상 캡처 (16:9)</div>
+          <div class="ps-label">행사 현장 사진</div>
+          <div class="ps-hint">행사장 · 부스 · 운영진 (16:9)</div>
         </div>
         <div class="proj-body">
-          <h3>유튜브 연주 채널</h3>
-          <div class="period">2023.03 ~ 현재</div>
-          <p>커버 · 자작곡 · 연습 브이로그를 올리는 채널. 촬영·편집·업로드 전부 직접 하며 꾸준함을 쌓았습니다.</p>
-          <div class="metric">구독자 3,200 · 영상 85편</div>
+          <h3>커뮤니티 이름</h3>
+          <div class="period">Organizer · 2026.01 ~ 2026.12</div>
+          <p>어떤 커뮤니티에서 어떤 역할을 맡아 어떤 규모의 행사를 만들었는지 두 문장으로.</p>
+          <div class="metric">300+ Attendees</div>
         </div>
       </div>
       <div class="proj reveal">
         <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
         <div class="photo-slot">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-          <div class="ps-label">레슨 · 마스터클래스 사진</div>
-          <div class="ps-hint">수업 장면 (16:9)</div>
+          <div class="ps-label">앱 · 서비스 화면</div>
+          <div class="ps-hint">스크린샷 · 시연 장면 (16:9)</div>
         </div>
         <div class="proj-body">
-          <h3>피아노 레슨 · 반주</h3>
-          <div class="period">2022.09 ~ 현재</div>
-          <p>초·중등 학생 개인 레슨과 성악·기악 전공생 반주. 학생 2명 예술중학교 합격, 콩쿠르 입상 지도.</p>
-          <div class="metric">누적 학생 18명</div>
+          <h3>사이드 프로젝트 이름</h3>
+          <div class="period">Team Leader · 2025.05 ~ 2025.12</div>
+          <p>어떤 대회 또는 계기로 어떤 제품을 만들고 어디까지(배포·운영) 가져갔는지 두 문장으로.</p>
+          <div class="metric">End-to-End Deployment</div>
         </div>
       </div>
       <div class="proj reveal">
         <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
         <div class="photo-slot">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
-          <div class="ps-label">기획 공연 현장 사진</div>
-          <div class="ps-hint">행사장 · 스태프 (16:9)</div>
+          <div class="ps-label">동아리 · 취미 사진</div>
+          <div class="ps-hint">활동 장면 (16:9)</div>
         </div>
         <div class="proj-body">
-          <h3>학생 기획 음악제 운영</h3>
-          <div class="period">기획팀장 · 2024.10</div>
-          <p>전공생 30명이 참여한 2일간 음악제를 기획·운영. 대관, 프로그램 편성, 홍보, 스태프 배치까지 총괄.</p>
-          <div class="metric">관객 600+ · 출연 30명</div>
+          <h3>동아리 · 취미 활동</h3>
+          <div class="period">운영진</div>
+          <p>규모가 있는 모임을 운영하며 무엇을 이끌었는지, 거기서 배운 태도 한 줄을 붙여서.</p>
+          <div class="metric">100+ Members</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ Awards ============ -->
+<!-- ============ Certifications ============ -->
 <section id="certs">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-tag">Awards & Competitions</span>
-      <h2 class="sec-title">수상 · 콩쿠르</h2>
+      <span class="sec-tag">Certifications</span>
+      <h2 class="sec-title">자격증</h2>
     </div>
     <div class="cert-grid">
       <div class="cert reveal">
-        <div class="badge">1st</div>
-        <h3>2025 전국 피아노 콩쿠르 대학부 1위</h3>
-        <div class="issuer">주최 기관명</div>
-        <span class="date">2025.08</span>
+        <div class="badge">PRO</div>
+        <h3>자격증 이름 1 — Professional</h3>
+        <div class="issuer">발급 기관</div>
+        <span class="date">2025.10 취득</span>
       </div>
       <div class="cert reveal">
-        <div class="badge">2nd</div>
-        <h3>예시 국제 청소년 콩쿠르 2위</h3>
-        <div class="issuer">주최 기관명</div>
-        <span class="date">2023.07</span>
+        <div class="badge">ASC</div>
+        <h3>자격증 이름 2 — Associate</h3>
+        <div class="issuer">발급 기관</div>
+        <span class="date">2024.08 취득</span>
       </div>
       <div class="cert reveal">
-        <div class="badge">선정</div>
-        <h3>청년예술가 창작지원사업 선정</h3>
-        <div class="issuer">예시 문화재단</div>
-        <span class="date">2024.03</span>
+        <div class="badge">SQL</div>
+        <h3>자격증 이름 3</h3>
+        <div class="issuer">발급 기관</div>
+        <span class="date">2024.04 취득</span>
       </div>
     </div>
   </div>
@@ -869,39 +860,39 @@ body{min-width:0}
 <section class="skills" id="skills">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="sec-tag">Skills & Repertoire</span>
-      <h2 class="sec-title">할 수 있는 것</h2>
+      <span class="sec-tag">Skills</span>
+      <h2 class="sec-title">기술 스택</h2>
     </div>
     <div class="skill-groups">
       <div class="skill-group sg-green reveal">
-        <h3>Instruments & Performance</h3>
+        <h3>Cloud & Infrastructure</h3>
         <div class="chips">
-          <span>Piano (Main)</span><span>Keyboard · Synth</span><span>Vocal (Sub)</span>
-          <span>Solo</span><span>Concerto</span><span>Chamber</span><span>Accompaniment</span>
-          <span>Sight-reading</span>
+          <span>AWS</span><span>Azure</span><span>GCP</span>
+          <span>Kubernetes</span><span>Docker</span><span>Terraform</span><span>Ansible</span>
+          <span>Prometheus · Grafana</span><span>Linux</span>
         </div>
       </div>
       <div class="skill-group sg-blue reveal">
-        <h3>Repertoire & Genre</h3>
+        <h3>Domain Expertise</h3>
         <div class="chips">
-          <span>Beethoven Sonatas</span><span>Chopin Ballades</span>
-          <span>Mozart Concertos</span><span>Schumann Quintet</span><span>Jazz Standards</span>
-          <span>Film Music</span><span>K-Pop Cover</span>
+          <span>도메인 기술 1</span><span>도메인 기술 2</span>
+          <span>도메인 기술 3</span><span>도메인 기술 4</span><span>도메인 기술 5</span>
+          <span>도메인 기술 6</span>
         </div>
       </div>
       <div class="skill-group sg-orange reveal">
-        <h3>Production & Software</h3>
+        <h3>Programming & Data</h3>
         <div class="chips">
-          <span>Logic Pro</span><span>Ableton Live</span><span>Sibelius</span><span>MuseScore</span>
-          <span>Mixing · Mastering (기초)</span><span>Premiere Pro</span><span>Canva</span>
+          <span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Go</span>
+          <span>SQL</span><span>Java</span><span>Web Scraping</span>
         </div>
       </div>
       <div class="skill-group sg-pink reveal">
-        <h3>Theory & Communication</h3>
+        <h3>Operations & Collaboration</h3>
         <div class="chips">
-          <span>Composition</span><span>Arrangement</span><span>Jazz Harmony</span>
-          <span>Music Theory · Ear Training</span><span>레슨 · 지도</span><span>공연 기획 · 운영</span>
-          <span>English Business</span>
+          <span>SLA 관리</span><span>컴플라이언스</span><span>RCA · 장애 대응</span>
+          <span>Jira · Confluence</span><span>Notion</span><span>한/영 커뮤니케이션</span>
+          <span>글로벌 협업</span>
         </div>
       </div>
     </div>
@@ -912,12 +903,11 @@ body{min-width:0}
 <section class="contact" id="contact">
   <div class="wrap">
     <span class="sec-tag">Contact</span>
-    <h2>함께 무대를 만들<br><span class="hl">준비가 되어 있습니다</span></h2>
-    <p>공연 섭외, 협연, 반주, 레슨, 작곡 의뢰 — 편하게 연락 주세요. 영상 · 음원 자료는 요청 시 보내드립니다.</p>
+    <h2>함께 일할 준비가<br><span class="hl">되어 있습니다</span></h2>
+    <p>어떤 주제로 연락받고 싶은지 한 문장. 가능한 언어도 함께.</p>
     <div class="contact-actions">
       <a href="mailto:hello@example.com" class="btn btn-green">이메일 보내기</a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="btn btn-ghost">Instagram</a>
-      <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="btn btn-ghost">YouTube</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn 프로필</a>
     </div>
     <div class="contact-email">hello@example.com · Seoul, South Korea</div>
   </div>
@@ -929,23 +919,23 @@ body{min-width:0}
     <div class="foot-grid">
       <div>
         <div class="f-logo">YOUR NAME<span class="dot">.</span></div>
-        <p>무대 위에서 이야기를 전하는 피아니스트. 연주하고, 만들고, 가르칩니다.</p>
+        <p>나를 한 줄로 설명하는 문장. 일하는 방식이 드러나는 슬로건 한 줄.</p>
       </div>
       <div>
         <h5>Sections</h5>
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#featured">Featured</a></li>
-          <li><a href="#experience">Performances & Works</a></li>
-          <li><a href="#projects">Activities</a></li>
+          <li><a href="#experience">Work Experience</a></li>
+          <li><a href="#projects">Projects & Activities</a></li>
         </ul>
       </div>
       <div>
         <h5>Contact</h5>
         <ul>
           <li><a href="mailto:hello@example.com">hello@example.com</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li>Seoul, South Korea</li>
         </ul>
       </div>
     </div>

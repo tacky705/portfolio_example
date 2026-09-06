@@ -1,31 +1,42 @@
 # Portfolio Template
 
-개발자·엔지니어용 원페이지 포트폴리오 템플릿. `index.html` 파일 하나, 빌드 도구 없음, GitHub Pages 에 바로 올라감.
+음악 · 공연 · 예술 전공생, 그리고 개발자를 위한 원페이지 포트폴리오 템플릿. `index.html` 파일 하나, 빌드 도구 없음, GitHub Pages 에 바로 올라감.
 
-데모: https://tacky705.github.io/porfolio_example/
+데모: https://tacky705.github.io/porfolio_example/ (음악 전공 버전)
+개발자 버전: https://tacky705.github.io/porfolio_example/developer.html
 
-## 이 템플릿이 담는 것
+## 두 가지 버전
 
-- Hero: 한 줄 배지 + 3줄 헤드라인 + 숫자 굵게 박은 리드 문장 + 프로필 사진 자리
-- Stats: 숫자 카운트업 4칸
-- About: 5줄 요약 + 학력·병역·언어 카드
-- Featured: 가장 보여주고 싶은 경험 하나를 다크 섹션으로 크게 (지표 4개 · 고객사/프로젝트 카드 4개 · 핵심 성과 3개)
-- Work Experience 4칸 · Projects 3칸 · Certifications 3칸 · Skills 4그룹 · Contact · Footer
-- 모바일 햄버거 메뉴, 스크롤 리빌, 맨 위로 버튼
+| 파일 | 대상 | 섹션 |
+|---|---|---|
+| `index.html` | 음악 · 공연 · 예술 (피아노 전공생 예시) | Hero · Stats · About(학력·사사·악기) · Featured(대표 공연 + 영상 임베드 자리) · Performances & Works · Activities · Awards · Skills & Repertoire · Contact(Instagram·YouTube) |
+| `developer.html` | 개발자 · 엔지니어 | Hero · Stats · About(학력·병역·언어) · Featured(대표 경험 + 고객사 카드) · Work Experience · Projects · Certifications · Skills · Contact(LinkedIn) |
+
+디자인·CSS·JS 는 동일. 본문 텍스트와 섹션 이름만 다르다. 자기 분야에 가까운 쪽을 `index.html` 로 두고 나머지는 지워도 된다.
 
 ## 사용법 (5분)
 
 1. 이 repo 를 **Use this template** 또는 Fork.
-2. `index.html` 열어서 `홍길동`, `예시 회사`, `YOUR NAME`, `hello@example.com`, 숫자들을 본인 것으로 교체. 본문 안에 `<!-- 사진 교체 -->` 주석이 있는 자리는 `photo-slot` div 를 `<img src="...">` 로 바꾸면 사진이 들어간다.
-3. 필요 없는 섹션은 `<section>` 통째로 삭제. 레이아웃 안 깨짐. 상단 nav 와 footer 의 링크만 같이 지울 것.
-4. 색은 `<style>` 맨 위 `:root` 변수 (`--green`, `--dark` 등) 만 바꾸면 전체 반영.
-5. GitHub 에 push → repo **Settings › Pages › Build and deployment › Branch: main / (root)** 선택. 1~2분 뒤 `https://<아이디>.github.io/<repo>/` 에서 확인.
+2. `index.html` 열어서 `홍길동`, `예시대학교`, `YOUR NAME`, `hello@example.com`, 작품명·숫자를 본인 것으로 교체.
+3. 사진: 본문에 `<!-- 사진 교체 -->` 주석이 붙은 `photo-slot` div 를 `<img src="...">` 로 바꾸면 들어간다.
+4. 대표 영상: Featured 섹션의 "대표 영상" 자리를 YouTube **공유 → 퍼가기** `<iframe>` 코드로 교체. 바로 위 주석에 예시 있음. SoundCloud · Spotify 임베드도 같은 방식.
+5. 필요 없는 섹션은 `<section>` 통째로 삭제. 레이아웃 안 깨짐. 상단 nav 와 footer 의 링크만 같이 지울 것.
+6. 색은 `<style>` 맨 위 `:root` 변수 (`--green`, `--dark` 등) 만 바꾸면 전체 반영.
+7. GitHub 에 push → repo **Settings › Pages › Build and deployment › Branch: main / (root) → Save**. 1~2분 뒤 `https://<아이디>.github.io/<repo>/` 에서 확인.
+
+## 이런 사람에게
+
+- 콩쿠르 · 오디션 · 대학원 지원에 링크 하나로 보낼 포트폴리오가 필요한 음악 전공생
+- 섭외 · 레슨 문의를 받을 개인 페이지가 필요한 연주자 · 작곡가 · 보컬
+- 무용 · 연극 · 미술 등 다른 예술 전공도 섹션 이름만 바꾸면 그대로 사용 가능
+- 이력서 대신 보여줄 페이지가 필요한 개발자 (`developer.html`)
 
 ## 파일
 
 | 파일 | 역할 |
 |---|---|
-| `index.html` | 페이지 전체 (CSS·HTML·JS 한 파일) |
+| `index.html` | 음악 · 예술 버전 (CSS·HTML·JS 한 파일) |
+| `developer.html` | 개발자 버전 |
 | `.nojekyll` | GitHub Pages 의 Jekyll 처리 건너뜀 |
 
 ## 라이선스

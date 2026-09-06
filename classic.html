@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Template — 음악·예술 전공 원페이지 포트폴리오</title>
+<meta name="description" content="음악·공연·예술 전공생용 원페이지 포트폴리오 템플릿. index.html 하나로 GitHub Pages 배포.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --dark:#001922;
+  --dark2:#00121a;
+  --green:#00d255;
+  --green-d:#00a344;
+  --lime:#a3ff5e;
+  --blue:#2965ff;
+  --orange:#ff9213;
+  --pink:#ff2552;
+  --ink:#212121;
+  --ink2:#363636;
+  --gray:#757575;
+  --line:#e7e7e7;
+  --bg-soft:#f6f6f6;
+  --radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard Variable',Pretendard,'Noto Sans KR','Malgun Gothic',-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  word-break:keep-all;
+}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* =====================================================
+   사진 플레이스홀더 (photo-slot)
+   사용법: 사진 준비되면 .photo-slot div 전체를
+   <img src="사진경로" alt="설명" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+   로 교체하거나, div 안에 img만 넣어도 됨.
+===================================================== */
+.photo-slot{
+  border:2px dashed #9fb0b7;
+  background:
+    linear-gradient(135deg, rgba(0,25,34,.03) 25%, transparent 25%, transparent 50%, rgba(0,25,34,.03) 50%, rgba(0,25,34,.03) 75%, transparent 75%);
+  background-size:24px 24px;
+  border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  color:#7d8f97;text-align:center;padding:20px;
+}
+.photo-slot svg{width:34px;height:34px;stroke:#9fb0b7;fill:none;stroke-width:1.6}
+.photo-slot .ps-label{font-weight:700;font-size:.88rem;letter-spacing:-.01em}
+.photo-slot .ps-hint{font-size:.74rem;opacity:.75}
+.photo-slot.on-dark{
+  border-color:rgba(255,255,255,.35);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.04) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.04) 50%, rgba(255,255,255,.04) 75%, transparent 75%);
+  background-size:24px 24px;
+  color:rgba(255,255,255,.55);
+}
+.photo-slot.on-dark svg{stroke:rgba(255,255,255,.45)}
+
+/* ===== Header ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s;
+}
+header.scrolled{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.logo .dot{color:var(--green)}
+.menu{display:flex;gap:30px;font-weight:600;font-size:.94rem;color:var(--ink2)}
+.menu a{padding:4px 0;transition:color .2s}
+.menu a:hover{color:var(--green)}
+.nav-cta{
+  background:var(--green);color:#fff;font-weight:700;font-size:.9rem;
+  padding:10px 20px;border-radius:999px;transition:transform .2s,box-shadow .2s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,210,85,.35)}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transition:.3s}
+
+/* ===== Hero ===== */
+.hero{
+  background:var(--dark);
+  color:#fff;
+  padding:150px 0 110px;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 800px 500px at 88% 10%, rgba(0,210,85,.13), transparent 60%),
+    radial-gradient(ellipse 600px 420px at 5% 95%, rgba(41,101,255,.11), transparent 60%);
+  pointer-events:none;
+}
+.hero .wrap{position:relative}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(163,255,94,.12);border:1px solid rgba(163,255,94,.35);
+  color:var(--lime);font-weight:600;font-size:.84rem;
+  padding:8px 18px;border-radius:999px;margin-bottom:26px;
+}
+.hero-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{
+  font-size:3.2rem;
+  font-weight:800;line-height:1.24;letter-spacing:-.03em;margin-bottom:22px;
+}
+.hero h1 .hl{color:var(--lime)}
+.hero p.lead{
+  font-size:1.12rem;color:rgba(255,255,255,.72);
+  max-width:560px;margin-bottom:36px;
+}
+.hero p.lead b{color:#fff;font-weight:600}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:700;font-size:.98rem;padding:14px 30px;border-radius:999px;
+  transition:transform .2s,box-shadow .2s;cursor:pointer;
+}
+.btn:hover{transform:translateY(-3px)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{box-shadow:0 10px 26px rgba(0,210,85,.4)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+.hero-keywords{display:flex;gap:9px;flex-wrap:wrap;margin-top:44px}
+.hero-keywords span{
+  font-size:.8rem;font-weight:600;color:rgba(255,255,255,.62);
+  border:1px solid rgba(255,255,255,.18);padding:6px 14px;border-radius:999px;
+}
+/* Hero photo */
+.hero-photo{position:relative}
+.hero-photo .photo-slot{
+  aspect-ratio:4/4.6;width:100%;max-width:400px;margin-left:auto;
+  border-radius:24px;
+}
+.hero-photo::after{
+  content:'';position:absolute;right:-14px;bottom:-14px;
+  width:120px;height:120px;border-radius:24px;
+  background:linear-gradient(135deg,var(--green),var(--lime));
+  opacity:.85;z-index:-1;
+}
+.hero-photo .float-chip{
+  position:absolute;left:-8px;bottom:34px;
+  background:#fff;color:var(--ink);border-radius:16px;
+  padding:14px 20px;box-shadow:0 14px 34px rgba(0,0,0,.28);
+}
+.hero-photo .float-chip b{display:block;font-size:1.25rem;font-weight:800;color:var(--green-d);line-height:1.2}
+.hero-photo .float-chip span{font-size:.78rem;font-weight:600;color:var(--gray)}
+
+/* ===== Stats ===== */
+.stats{background:#fff;padding:86px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{
+  text-align:center;padding:38px 16px;border-radius:var(--radius);
+  background:var(--bg-soft);transition:transform .25s,box-shadow .25s;
+}
+.stat:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(0,25,34,.1)}
+.stat .num{
+  font-size:2.7rem;font-weight:800;letter-spacing:-.02em;
+  color:var(--dark);line-height:1.1;
+}
+.stat .num em{font-style:normal;color:var(--green)}
+.stat .label{margin-top:10px;font-weight:700;color:var(--ink2);font-size:.95rem}
+.stat .sub{font-size:.79rem;color:var(--gray);margin-top:4px}
+
+/* ===== Section shared ===== */
+section{padding:96px 0}
+.sec-tag{
+  display:inline-block;font-weight:700;font-size:.83rem;color:var(--green-d);
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;
+}
+.sec-title{
+  font-size:2.4rem;font-weight:800;
+  letter-spacing:-.03em;line-height:1.32;margin-bottom:16px;
+}
+.sec-desc{color:var(--gray);font-size:1.02rem;max-width:680px}
+.sec-head{margin-bottom:54px}
+.center{text-align:center}
+.center .sec-desc{margin:0 auto}
+
+/* ===== About ===== */
+.about{background:var(--bg-soft)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.about-summary li{display:flex;gap:14px;margin-bottom:18px;font-size:1rem;color:var(--ink2)}
+.about-summary li::before{
+  content:'✓';flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  background:var(--green);color:#fff;font-weight:800;font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.about-summary b{color:var(--ink)}
+.about-side{display:flex;flex-direction:column;gap:18px}
+.about-side .photo-slot{aspect-ratio:16/9}
+.info-card{
+  background:#fff;border-radius:var(--radius);padding:26px 30px;
+  box-shadow:0 4px 18px rgba(0,25,34,.06);
+}
+.info-card h4{
+  font-size:.8rem;font-weight:800;color:var(--green-d);
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;
+}
+.info-card .big{font-weight:800;font-size:1.12rem;letter-spacing:-.01em}
+.info-card p{color:var(--gray);font-size:.9rem;margin-top:6px}
+.info-card p b{color:var(--green-d)}
+.lang-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.lang-row span{
+  background:var(--bg-soft);border-radius:999px;padding:7px 16px;
+  font-weight:600;font-size:.86rem;color:var(--ink2);
+}
+.lang-row span b{color:var(--green-d)}
+
+/* ===== Featured Section ===== */
+.featured{background:var(--dark);color:#fff}
+.featured .sec-tag{color:var(--lime)}
+.featured .sec-desc{color:rgba(255,255,255,.65)}
+.featured-intro{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);padding:34px 38px;margin-bottom:26px;
+}
+.featured-intro .role{font-weight:800;font-size:1.28rem;letter-spacing:-.01em}
+.featured-intro .role em{font-style:normal;color:var(--lime)}
+.featured-intro .period{color:rgba(255,255,255,.55);font-size:.88rem;font-weight:600;margin-top:4px}
+.featured-intro p{color:rgba(255,255,255,.78);margin-top:16px;font-size:.99rem;max-width:900px}
+.featured-metrics{display:flex;gap:36px;flex-wrap:wrap;margin-top:24px}
+.featured-metrics div{font-size:.9rem;color:rgba(255,255,255,.6)}
+.featured-metrics b{display:block;font-size:1.5rem;font-weight:800;color:var(--green);letter-spacing:-.01em}
+.featured-photo{margin-bottom:48px}
+.featured-photo .photo-slot{aspect-ratio:21/7;width:100%}
+.cust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.cust{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);padding:32px;
+  transition:transform .25s,border-color .25s,background .25s;
+}
+.cust:hover{transform:translateY(-5px);background:rgba(255,255,255,.07)}
+.cust-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.cust-name{font-weight:800;font-size:1.18rem}
+.cust-cid{font-size:.72rem;font-weight:700;padding:5px 13px;border-radius:999px;letter-spacing:.06em;white-space:nowrap}
+.cid-blue{background:rgba(41,101,255,.18);color:#7ba3ff}
+.cid-orange{background:rgba(255,146,19,.18);color:#ffb45e}
+.cid-pink{background:rgba(255,37,82,.16);color:#ff7a97}
+.cid-green{background:rgba(0,210,85,.16);color:#5ce68f}
+.cust.b-blue:hover{border-color:rgba(41,101,255,.5)}
+.cust.b-orange:hover{border-color:rgba(255,146,19,.5)}
+.cust.b-pink:hover{border-color:rgba(255,37,82,.5)}
+.cust.b-green:hover{border-color:rgba(0,210,85,.5)}
+.cust .env{font-size:.84rem;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:16px}
+.cust ul li{
+  font-size:.91rem;color:rgba(255,255,255,.75);padding-left:16px;position:relative;margin-bottom:9px;
+}
+.cust ul li::before{content:'';position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--green)}
+.cust ul li b{color:#fff}
+.featured-achieve{margin-top:48px}
+.featured-achieve h3{font-weight:800;font-size:1.22rem;margin-bottom:22px}
+.featured-achieve h3 em{font-style:normal;color:var(--lime)}
+.achieve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.achieve{
+  background:rgba(163,255,94,.06);border:1px solid rgba(163,255,94,.18);
+  border-radius:16px;padding:24px;
+}
+.achieve b{display:block;color:var(--lime);font-size:.96rem;margin-bottom:8px}
+.achieve p{font-size:.87rem;color:rgba(255,255,255,.7)}
+
+/* ===== Experience ===== */
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.exp{
+  border:1px solid var(--line);border-radius:var(--radius);
+  transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden;
+  background:#fff;display:flex;flex-direction:column;
+}
+.exp::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;z-index:2}
+.exp.t-blue::before{background:var(--blue)}
+.exp.t-orange::before{background:var(--orange)}
+.exp.t-pink::before{background:var(--pink)}
+.exp.t-green::before{background:var(--green)}
+.exp:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgba(0,25,34,.12)}
+.exp .photo-slot{
+  border-radius:0;border-left:none;border-right:none;border-top:none;
+  aspect-ratio:16/6.5;
+}
+.exp-body{padding:28px 32px 32px;display:flex;flex-direction:column;flex-grow:1}
+.exp-tag{
+  display:inline-block;font-size:.73rem;font-weight:700;padding:5px 13px;
+  border-radius:999px;margin-bottom:14px;letter-spacing:.04em;align-self:flex-start;
+}
+.tag-blue{background:rgba(41,101,255,.1);color:var(--blue)}
+.tag-orange{background:rgba(255,146,19,.12);color:#e07c00}
+.tag-pink{background:rgba(255,37,82,.09);color:var(--pink)}
+.tag-green{background:rgba(0,210,85,.11);color:var(--green-d)}
+.exp h3{font-size:1.2rem;font-weight:800;letter-spacing:-.01em;line-height:1.35}
+.exp .role{color:var(--ink2);font-weight:600;font-size:.9rem;margin-top:4px}
+.exp .period{color:var(--gray);font-size:.82rem;font-weight:600;margin-top:2px;margin-bottom:16px}
+.exp ul{flex-grow:1}
+.exp ul li{
+  font-size:.92rem;color:var(--ink2);padding-left:16px;position:relative;margin-bottom:9px;
+}
+.exp ul li::before{content:'';position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.4}
+.exp .stack{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.exp .stack span{
+  font-size:.73rem;font-weight:600;color:var(--gray);
+  background:var(--bg-soft);padding:4px 11px;border-radius:999px;
+}
+
+/* ===== Projects ===== */
+.projects{background:var(--bg-soft)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.proj{
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:0 4px 18px rgba(0,25,34,.05);
+  transition:transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.proj:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgba(0,25,34,.12)}
+.proj .photo-slot{border-radius:0;border-left:none;border-right:none;border-top:none;aspect-ratio:16/9}
+.proj-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex-grow:1}
+.proj h3{font-size:1.1rem;font-weight:800;letter-spacing:-.01em}
+.proj .period{color:var(--gray);font-size:.79rem;font-weight:600;margin:4px 0 12px}
+.proj p{font-size:.91rem;color:var(--ink2);flex-grow:1}
+.proj .metric{
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+  font-weight:700;font-size:.9rem;color:var(--green-d);
+}
+
+/* ===== Certifications ===== */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cert{
+  border:1.5px solid var(--line);border-radius:var(--radius);padding:34px 28px;text-align:center;
+  transition:border-color .25s,transform .25s,box-shadow .25s;
+}
+.cert:hover{border-color:var(--green);transform:translateY(-5px);box-shadow:0 14px 32px rgba(0,210,85,.12)}
+.cert .badge{
+  width:64px;height:64px;margin:0 auto 18px;border-radius:18px;
+  background:linear-gradient(135deg,var(--dark),#023a4e);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--lime);font-weight:800;font-size:.95rem;letter-spacing:.02em;
+}
+.cert h3{font-size:1.03rem;font-weight:800;line-height:1.4;letter-spacing:-.01em}
+.cert .issuer{color:var(--gray);font-size:.84rem;font-weight:600;margin-top:6px}
+.cert .date{
+  display:inline-block;margin-top:14px;font-size:.77rem;font-weight:700;color:var(--green-d);
+  background:rgba(0,210,85,.1);padding:5px 14px;border-radius:999px;
+}
+
+/* ===== Skills ===== */
+.skills{background:var(--bg-soft)}
+.skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.skill-group{
+  background:#fff;border-radius:var(--radius);padding:30px 32px;
+  box-shadow:0 4px 18px rgba(0,25,34,.05);
+}
+.skill-group h3{font-size:1rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.skill-group h3::before{content:'';width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.sg-green h3::before{background:var(--green)}
+.sg-blue h3::before{background:var(--blue)}
+.sg-orange h3::before{background:var(--orange)}
+.sg-pink h3::before{background:var(--pink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips span{
+  font-size:.83rem;font-weight:600;color:var(--ink2);
+  background:var(--bg-soft);padding:7px 15px;border-radius:999px;
+  transition:background .2s,color .2s;
+}
+.chips span:hover{background:var(--dark);color:#fff}
+
+/* ===== Contact ===== */
+.contact{background:var(--dark);color:#fff;text-align:center;position:relative;overflow:hidden}
+.contact::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 700px 400px at 50% 100%, rgba(0,210,85,.16), transparent 65%);
+  pointer-events:none;
+}
+.contact .wrap{position:relative}
+.contact .sec-tag{color:var(--lime)}
+.contact h2{
+  font-size:2.8rem;font-weight:800;letter-spacing:-.03em;
+  line-height:1.3;margin-bottom:16px;
+}
+.contact h2 .hl{color:var(--lime)}
+.contact p{color:rgba(255,255,255,.68);max-width:560px;margin:0 auto 38px;font-size:1.02rem}
+.contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.contact-email{margin-top:32px;font-size:.9rem;color:rgba(255,255,255,.5);font-weight:500}
+.contact-email a{color:var(--lime);font-weight:700}
+.contact-email a:hover{text-decoration:underline}
+
+/* ===== Footer ===== */
+footer{background:var(--dark2);color:rgba(255,255,255,.45);padding:52px 0 34px;font-size:.86rem}
+.foot-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-grid h5{color:#fff;font-size:.92rem;font-weight:800;margin-bottom:14px}
+.foot-grid .f-logo{font-weight:800;color:#fff;font-size:1.15rem;margin-bottom:10px}
+.foot-grid .f-logo .dot{color:var(--green)}
+.foot-grid p{max-width:280px}
+.foot-grid ul li{margin-bottom:9px}
+.foot-grid a:hover{color:var(--lime)}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;font-size:.8rem}
+
+/* ===== Top button ===== */
+#toTop{
+  position:fixed;right:24px;bottom:24px;z-index:90;
+  width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--dark);color:#fff;font-size:1.1rem;font-weight:800;
+  box-shadow:0 10px 24px rgba(0,25,34,.3);
+  opacity:0;pointer-events:none;transition:opacity .3s,transform .2s;
+}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{transform:translateY(-3px);background:var(--green)}
+
+/* ===== Reveal ===== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* =====================================================
+   고정 비율 스케일링
+   디자인은 1140px 기준 캔버스로 고정.
+   창 너비가 바뀌면 페이지 전체가 zoom으로 비례 확대/축소되어
+   레이아웃 재배치 없이 항상 같은 모습 유지 (JS에서 zoom 계산).
+===================================================== */
+body{min-width:0}
+</style>
+</head>
+<body>
+
+<!--
+  ┌──────────────────────────────────────────────────────────────┐
+  │  포트폴리오 템플릿 (음악 · 공연 · 예술 전공용) — 사용법           │
+  │  1. 예시 텍스트(홍길동 · 예시대학교 · 작품명 · 숫자)를 본인 것으로 교체 │
+  │  2. photo-slot div 를 <img src="..."> 로 교체하면 사진 표시     │
+  │  3. "대표 영상" 자리는 YouTube 공유 → 퍼가기 <iframe> 코드로 교체 │
+  │  4. GitHub 에 push → Settings › Pages › Branch: main 선택       │
+  │  섹션 통째로 지워도 레이아웃 안 깨짐. 색상은 <style> 의 :root 변수. │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#" class="logo">YOUR NAME<span class="dot">.</span></a>
+    <nav class="menu" id="menu">
+      <a href="#about">About</a>
+      <a href="#featured">Featured</a>
+      <a href="#experience">Performances</a>
+      <a href="#projects">Activities</a>
+      <a href="#certs">Awards</a>
+      <a href="#skills">Skills</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Contact</a>
+    <button class="hamburger" id="hamburger" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">예시대학교 음악대학 · 피아노 전공 4학년</div>
+        <h1>무대 위에서<br>이야기를 전하는<br><span class="hl">피아니스트, 홍길동</span>입니다</h1>
+        <p class="lead">
+          <b>정기연주회 12회</b>에 올랐고, <b>전국 콩쿠르 1위</b>를 수상했으며,
+          지금은 <b>자작곡 EP 발매</b>와 앙상블 활동을 병행하고 있습니다.
+        </p>
+        <div class="hero-actions">
+          <a href="#featured" class="btn btn-green">대표 연주 보기</a>
+          <a href="#contact" class="btn btn-ghost">섭외 · 레슨 문의</a>
+        </div>
+        <div class="hero-keywords">
+          <span>Classical · Jazz</span>
+          <span>Piano · Composition</span>
+          <span>Chamber · Solo</span>
+          <span>Logic Pro</span>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot on-dark">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">프로필 사진</div>
+          <div class="ps-hint">프로필 · 무대 사진 · 세로형 권장 (약 800×920px)</div>
+        </div>
+        <div class="float-chip">
+          <b>1st Prize</b>
+          <span>2025 전국 피아노 콩쿠르</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stats ============ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="num"><em data-count="32">0</em></div>
+        <div class="label">무대 경험</div>
+        <div class="sub">독주 · 협연 · 앙상블 합산</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><em data-count="4800">0</em>+</div>
+        <div class="label">누적 관객</div>
+        <div class="sub">공연장 좌석 기준 합산</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><em data-count="6">0</em></div>
+        <div class="label">발표 작품</div>
+        <div class="sub">자작곡 · 편곡 · 음원 발매</div>
+      </div>
+      <div class="stat reveal">
+        <div class="num"><em data-count="5">0</em></div>
+        <div class="label">수상</div>
+        <div class="sub">콩쿠르 · 공모전 입상</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ About ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">About Me</span>
+      <h2 class="sec-title">악보 너머의 이야기를<br>찾아내는 연주자</h2>
+    </div>
+    <div class="about-grid">
+      <ul class="about-summary reveal">
+        <li><span><b>7세에 피아노를 시작</b>해 클래식으로 기초를 다졌고, 대학에서 재즈 화성과 작곡을 함께 공부하고 있습니다.</span></li>
+        <li><span>정기연주회·졸업연주회를 포함해 <b>32회 무대</b>에 섰고, 2025 전국 피아노 콩쿠르에서 <b>1위</b>를 수상했습니다.</span></li>
+        <li><span>현악 4중주와의 <b>피아노 5중주 협연</b>, 성악 반주, 뮤지컬 밴드 세션 등 장르를 넘나드는 앙상블 경험이 있습니다.</span></li>
+        <li><span>자작곡 EP <b>"제목 예시"</b>(6곡)를 작곡·편곡·믹싱까지 직접 맡아 발매했습니다.</span></li>
+        <li><span>초·중등 학생 <b>레슨 3년</b>, 유튜브 연주 채널 운영 — 연주만큼 전달하는 일을 좋아합니다.</span></li>
+      </ul>
+      <div class="about-side reveal">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">연습실 · 무대 뒤 사진</div>
+          <div class="ps-hint">일상 · 리허설 · 공연 후 (가로형 16:9)</div>
+        </div>
+        <div class="info-card">
+          <h4>Education</h4>
+          <div class="big">예시대학교 음악대학 피아노과</div>
+          <p>2022.03 ~ 재학 중 · <b>성적우수 장학</b><br>예시예술고등학교 졸업 (2022)</p>
+        </div>
+        <div class="info-card">
+          <h4>Teachers</h4>
+          <div class="big">사사 · 마스터클래스</div>
+          <p>홍교수 사사 (2022~) · 김교수 사사 (2019~2022)<br>2024 예시 국제 마스터클래스 수료</p>
+        </div>
+        <div class="info-card">
+          <h4>Instruments · Languages</h4>
+          <div class="lang-row">
+            <span>Piano <b>Main</b></span>
+            <span>Vocal <b>Sub</b></span>
+            <span>English Business</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Featured Work ============ -->
+<section class="featured" id="featured">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">Featured — 대표 작품</span>
+      <h2 class="sec-title">가장 보여주고 싶은 무대 하나를<br>영상과 함께 크게</h2>
+      <p class="sec-desc">독주회, 협연, 앨범, 전시 — 대표작 하나를 골라 어떤 자리에서, 어떤 프로그램으로, 어떤 반응을 얻었는지.</p>
+    </div>
+
+    <div class="featured-intro reveal">
+      <div class="role">2025 독주회 — <em>"제목 예시: 밤의 변주"</em></div>
+      <div class="period">2025.11.14 · 예시아트홀 (서울) · 러닝타임 80분</div>
+      <p>
+        베토벤 소나타 No.23 "열정", 쇼팽 발라드 No.1, 자작곡 3곡으로 구성한 첫 단독 독주회.
+        기획·프로그램 구성·홍보·무대 진행까지 직접 맡았고, 객석 320석 중 290석이 찼습니다.
+      </p>
+      <div class="featured-metrics">
+        <div><b>290</b>관객</div>
+        <div><b>80분</b>러닝타임</div>
+        <div><b>9곡</b>프로그램</div>
+        <div><b>3곡</b>자작곡 초연</div>
+      </div>
+    </div>
+
+    <div class="featured-photo reveal">
+      <!--
+        대표 영상 교체: 아래 photo-slot div 전체를 YouTube 퍼가기 코드로 교체.
+        YouTube 영상 → 공유 → 퍼가기 → 복사. 예:
+        <iframe width="100%" style="aspect-ratio:21/7;border:0;border-radius:20px"
+          src="https://www.youtube.com/embed/영상ID" title="대표 연주"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+        SoundCloud · Spotify 임베드도 같은 방식.
+      -->
+      <div class="photo-slot on-dark">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+        <div class="ps-label">대표 영상 (YouTube iframe 으로 교체)</div>
+        <div class="ps-hint">공연 실황 · 뮤직비디오 · 포스터 (와이드 21:7)</div>
+      </div>
+    </div>
+
+    <div class="cust-grid">
+      <div class="cust b-blue reveal">
+        <div class="cust-top">
+          <div class="cust-name">Program I</div>
+          <span class="cust-cid cid-blue">CLASSICAL · 3 PIECES</span>
+        </div>
+        <div class="env">베토벤 · 쇼팽 — 1부 40분</div>
+        <ul>
+          <li>베토벤 피아노 소나타 No.23 "열정" <b>전악장</b></li>
+          <li>쇼팽 발라드 No.1 g단조 Op.23</li>
+          <li>페달링·다이내믹 해석 포인트 한 줄</li>
+          <li>준비 기간 · 연습 방식 한 줄</li>
+        </ul>
+      </div>
+      <div class="cust b-orange reveal">
+        <div class="cust-top">
+          <div class="cust-name">Program II</div>
+          <span class="cust-cid cid-orange">ORIGINAL · 3 PIECES</span>
+        </div>
+        <div class="env">자작곡 초연 — 2부 30분</div>
+        <ul>
+          <li>자작곡 3곡 <b>세계 초연</b> — 제목 · 제목 · 제목</li>
+          <li>작곡 동기와 구성(형식·조성) 한 줄</li>
+          <li>현악 4중주와 협연한 곡 한 줄</li>
+          <li>관객 반응 · 앵콜 여부 한 줄</li>
+        </ul>
+      </div>
+      <div class="cust b-pink reveal">
+        <div class="cust-top">
+          <div class="cust-name">기획 · 홍보</div>
+          <span class="cust-cid cid-pink">PRODUCTION</span>
+        </div>
+        <div class="env">포스터 · 티켓 · SNS 홍보 직접 운영</div>
+        <ul>
+          <li>포스터 · 프로그램북 <b>직접 디자인</b></li>
+          <li>인스타그램 릴스 6편으로 예매 유도 — 조회 1.2만</li>
+          <li>대관 · 조율 · 음향 · 촬영 섭외 한 줄</li>
+          <li>예산 규모와 회수율 한 줄</li>
+        </ul>
+      </div>
+      <div class="cust b-green reveal">
+        <div class="cust-top">
+          <div class="cust-name">리뷰 · 반응</div>
+          <span class="cust-cid cid-green">FEEDBACK</span>
+        </div>
+        <div class="env">교수 · 관객 · 언론 코멘트</div>
+        <ul>
+          <li>"인용문 한 줄" — <b>홍교수</b></li>
+          <li>관객 설문 만족도 4.8 / 5 (응답 120명)</li>
+          <li>학내 신문 · 지역 매체 기사 한 줄</li>
+          <li>이후 이어진 섭외 · 협연 제안 한 줄</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="featured-achieve reveal">
+      <h3>이 무대에서 얻은 것 — <em>연주자이자 기획자</em></h3>
+      <div class="achieve-grid">
+        <div class="achieve">
+          <b>해석의 성장</b>
+          <p>어떤 곡에서 어떤 해석을 시도했고, 사사 교수와 어떤 방향으로 다듬었는지 두세 문장으로.</p>
+        </div>
+        <div class="achieve">
+          <b>기획 역량</b>
+          <p>대관부터 홍보·정산까지 혼자 굴려본 경험과, 다음 공연에 적용할 개선점 한 줄.</p>
+        </div>
+        <div class="achieve">
+          <b>창작으로 확장</b>
+          <p>연주에서 작곡·편곡으로 영역을 넓힌 계기와, 초연 이후 음원화 계획 한 줄.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Performances & Works ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Performances & Works</span>
+      <h2 class="sec-title">무대와 작품 이력</h2>
+      <p class="sec-desc">독주, 협연, 앨범, 세션 — 다른 무대, 같은 태도로 준비했습니다.</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp t-blue reveal">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">협연 실황 사진</div>
+          <div class="ps-hint">무대 · 리허설 (가로형)</div>
+        </div>
+        <div class="exp-body">
+          <span class="exp-tag tag-blue">Concerto</span>
+          <h3>예시 시립교향악단 협연</h3>
+          <div class="role">피아노 솔리스트</div>
+          <div class="period">2025.05 · 예시문화예술회관</div>
+          <ul>
+            <li>모차르트 피아노 협주곡 No.21 — <b>객석 1,200석</b> 정기연주회</li>
+            <li>지휘자 · 오케스트라와 리허설 3회, 카덴차 직접 편곡</li>
+            <li>학내 협연 오디션 1위로 선발</li>
+          </ul>
+          <div class="stack"><span>Mozart</span><span>Concerto</span><span>Orchestra</span><span>Cadenza</span></div>
+        </div>
+      </div>
+      <div class="exp t-orange reveal">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">앨범 커버 · 스튜디오 사진</div>
+          <div class="ps-hint">커버 아트 · 녹음 현장 (가로형)</div>
+        </div>
+        <div class="exp-body">
+          <span class="exp-tag tag-orange">Release</span>
+          <h3>EP "제목 예시"</h3>
+          <div class="role">작곡 · 편곡 · 피아노 · 믹싱</div>
+          <div class="period">2025.02 발매 · 6곡</div>
+          <ul>
+            <li>Logic Pro 로 작곡·편곡, 홈 스튜디오 녹음, <b>믹싱까지 직접</b></li>
+            <li>Spotify · Apple Music · 멜론 유통 — 누적 스트리밍 수치</li>
+            <li>타이틀곡 뮤직비디오 유튜브 조회 수치</li>
+          </ul>
+          <div class="stack"><span>Logic Pro</span><span>Composition</span><span>Mixing</span><span>Distribution</span></div>
+        </div>
+      </div>
+      <div class="exp t-pink reveal">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">앙상블 공연 사진</div>
+          <div class="ps-hint">무대 (가로형)</div>
+        </div>
+        <div class="exp-body">
+          <span class="exp-tag tag-pink">Chamber</span>
+          <h3>예시 피아노 5중주단</h3>
+          <div class="role">피아노 · 창단 멤버</div>
+          <div class="period">2023.09 ~ 현재</div>
+          <ul>
+            <li>현악 4중주와 <b>정기공연 4회</b>, 슈만 · 드보르자크 5중주</li>
+            <li>지역 문화재단 청년예술가 지원사업 선정</li>
+            <li>학교 · 병원 · 도서관 찾아가는 음악회 6회</li>
+          </ul>
+          <div class="stack"><span>Schumann</span><span>Dvořák</span><span>Ensemble</span><span>Outreach</span></div>
+        </div>
+      </div>
+      <div class="exp t-green reveal">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">뮤지컬 · 세션 현장 사진</div>
+          <div class="ps-hint">피트 · 밴드 (가로형)</div>
+        </div>
+        <div class="exp-body">
+          <span class="exp-tag tag-green">Session</span>
+          <h3>뮤지컬 "제목 예시" 밴드</h3>
+          <div class="role">키보드 세션 · 음악조감독</div>
+          <div class="period">2024.06 ~ 2024.08 · 총 24회 공연</div>
+          <ul>
+            <li>대학 연합 뮤지컬 <b>24회 공연</b> 키보드 세션</li>
+            <li>보컬 · 앙상블 음악 연습 지도, 편곡 보조</li>
+            <li>공연 실황 녹음 · 편집 참여</li>
+          </ul>
+          <div class="stack"><span>Keyboard</span><span>Musical</span><span>Vocal Coaching</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Activities ============ -->
+<section class="projects" id="projects">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Activities</span>
+      <h2 class="sec-title">무대 밖에서도 음악을 합니다</h2>
+      <p class="sec-desc">가르치고, 기록하고, 사람을 모으는 일 — 연주를 더 멀리 보내는 활동들.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj reveal">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">유튜브 채널 썸네일</div>
+          <div class="ps-hint">채널 아트 · 영상 캡처 (16:9)</div>
+        </div>
+        <div class="proj-body">
+          <h3>유튜브 연주 채널</h3>
+          <div class="period">2023.03 ~ 현재</div>
+          <p>커버 · 자작곡 · 연습 브이로그를 올리는 채널. 촬영·편집·업로드 전부 직접 하며 꾸준함을 쌓았습니다.</p>
+          <div class="metric">구독자 3,200 · 영상 85편</div>
+        </div>
+      </div>
+      <div class="proj reveal">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">레슨 · 마스터클래스 사진</div>
+          <div class="ps-hint">수업 장면 (16:9)</div>
+        </div>
+        <div class="proj-body">
+          <h3>피아노 레슨 · 반주</h3>
+          <div class="period">2022.09 ~ 현재</div>
+          <p>초·중등 학생 개인 레슨과 성악·기악 전공생 반주. 학생 2명 예술중학교 합격, 콩쿠르 입상 지도.</p>
+          <div class="metric">누적 학생 18명</div>
+        </div>
+      </div>
+      <div class="proj reveal">
+        <!-- 사진 교체: 아래 photo-slot div를 <img>로 교체 -->
+        <div class="photo-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.8"/><path d="M3 17l5-4 3 2.5L16 11l5 5"/></svg>
+          <div class="ps-label">기획 공연 현장 사진</div>
+          <div class="ps-hint">행사장 · 스태프 (16:9)</div>
+        </div>
+        <div class="proj-body">
+          <h3>학생 기획 음악제 운영</h3>
+          <div class="period">기획팀장 · 2024.10</div>
+          <p>전공생 30명이 참여한 2일간 음악제를 기획·운영. 대관, 프로그램 편성, 홍보, 스태프 배치까지 총괄.</p>
+          <div class="metric">관객 600+ · 출연 30명</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Awards ============ -->
+<section id="certs">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Awards & Competitions</span>
+      <h2 class="sec-title">수상 · 콩쿠르</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert reveal">
+        <div class="badge">1st</div>
+        <h3>2025 전국 피아노 콩쿠르 대학부 1위</h3>
+        <div class="issuer">주최 기관명</div>
+        <span class="date">2025.08</span>
+      </div>
+      <div class="cert reveal">
+        <div class="badge">2nd</div>
+        <h3>예시 국제 청소년 콩쿠르 2위</h3>
+        <div class="issuer">주최 기관명</div>
+        <span class="date">2023.07</span>
+      </div>
+      <div class="cert reveal">
+        <div class="badge">선정</div>
+        <h3>청년예술가 창작지원사업 선정</h3>
+        <div class="issuer">예시 문화재단</div>
+        <span class="date">2024.03</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Skills ============ -->
+<section class="skills" id="skills">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="sec-tag">Skills & Repertoire</span>
+      <h2 class="sec-title">할 수 있는 것</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group sg-green reveal">
+        <h3>Instruments & Performance</h3>
+        <div class="chips">
+          <span>Piano (Main)</span><span>Keyboard · Synth</span><span>Vocal (Sub)</span>
+          <span>Solo</span><span>Concerto</span><span>Chamber</span><span>Accompaniment</span>
+          <span>Sight-reading</span>
+        </div>
+      </div>
+      <div class="skill-group sg-blue reveal">
+        <h3>Repertoire & Genre</h3>
+        <div class="chips">
+          <span>Beethoven Sonatas</span><span>Chopin Ballades</span>
+          <span>Mozart Concertos</span><span>Schumann Quintet</span><span>Jazz Standards</span>
+          <span>Film Music</span><span>K-Pop Cover</span>
+        </div>
+      </div>
+      <div class="skill-group sg-orange reveal">
+        <h3>Production & Software</h3>
+        <div class="chips">
+          <span>Logic Pro</span><span>Ableton Live</span><span>Sibelius</span><span>MuseScore</span>
+          <span>Mixing · Mastering (기초)</span><span>Premiere Pro</span><span>Canva</span>
+        </div>
+      </div>
+      <div class="skill-group sg-pink reveal">
+        <h3>Theory & Communication</h3>
+        <div class="chips">
+          <span>Composition</span><span>Arrangement</span><span>Jazz Harmony</span>
+          <span>Music Theory · Ear Training</span><span>레슨 · 지도</span><span>공연 기획 · 운영</span>
+          <span>English Business</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="sec-tag">Contact</span>
+    <h2>함께 무대를 만들<br><span class="hl">준비가 되어 있습니다</span></h2>
+    <p>공연 섭외, 협연, 반주, 레슨, 작곡 의뢰 — 편하게 연락 주세요. 영상 · 음원 자료는 요청 시 보내드립니다.</p>
+    <div class="contact-actions">
+      <a href="mailto:hello@example.com" class="btn btn-green">이메일 보내기</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="btn btn-ghost">Instagram</a>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="btn btn-ghost">YouTube</a>
+    </div>
+    <div class="contact-email">hello@example.com · Seoul, South Korea</div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="f-logo">YOUR NAME<span class="dot">.</span></div>
+        <p>무대 위에서 이야기를 전하는 피아니스트. 연주하고, 만들고, 가르칩니다.</p>
+      </div>
+      <div>
+        <h5>Sections</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#experience">Performances & Works</a></li>
+          <li><a href="#projects">Activities</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:hello@example.com">hello@example.com</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Your Name. All rights reserved.</div>
+      <div>Portfolio Template</div>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="맨 위로">↑</button>
+
+<script>
+// 고정 비율 스케일링 — 창 너비에 맞춰 전체 페이지를 비례 확대/축소
+const DESIGN_WIDTH = 1140;
+function fitScale() {
+  const w = document.documentElement.clientWidth;
+  document.documentElement.style.zoom = w / DESIGN_WIDTH;
+}
+fitScale();
+window.addEventListener('resize', fitScale);
+
+// Sticky header shadow
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+  toTop.classList.toggle('show', window.scrollY > 600);
+});
+
+// Back to top
+const toTop = document.getElementById('toTop');
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+hamburger.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Counter animation
+const counterIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    counterIO.unobserve(el);
+    const target = +el.dataset.count;
+    const dur = 1600;
+    const t0 = performance.now();
+    const fmt = n => n.toLocaleString('ko-KR');
+    const tick = now => {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
+</script>
+</body>
+</html>

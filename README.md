@@ -2,7 +2,7 @@
 
 개발자·엔지니어용 원페이지 포트폴리오 템플릿. `index.html` 파일 하나, 빌드 도구 없음, GitHub Pages 에 바로 올라감.
 
-데모: (repo 의 Pages 주소)
+데모: https://tacky705.github.io/porfolio_example/
 
 ## 이 템플릿이 담는 것
 

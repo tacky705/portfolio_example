@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage Template — Sprint 스타일 동아리 · 동호회 홈페이지</title>
+<meta name="description" content="동아리 · 동호회용 Sprint 스타일 원페이지 홈페이지 템플릿. 흑백 · 좌우 분할 히어로 · 주간 타임라인 · 활동 사진 띠 · 한 줄 가입 폼.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   Sprint 스타일 — 흑백 · 좌우 분할 히어로 · 주간 타임라인 · 사진 띠 · 한 줄 가입
+   색은 아래 :root 만 바꾸면 전체 반영
+   ===================================================== */
+:root{
+  --paper:#ffffff;
+  --ink:#151515;
+  --ink2:#444444;
+  --mute:#8a8a8a;
+  --soft:#f2f2f2;
+  --slot:#ededed;
+  --slot2:#dcdcdc;
+  --display:'Anton',Impact,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,'Noto Sans KR',sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+.display{font-family:var(--display);font-weight:400;letter-spacing:.01em;text-transform:uppercase}
+.frame{border:2px solid var(--ink);background:var(--paper);overflow:hidden;position:relative}
+.photo-slot{width:100%;height:100%;background:repeating-linear-gradient(135deg,var(--slot) 0 14px,var(--slot2) 14px 15px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--mute);text-align:center;padding:12px}
+.photo-slot .ps-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.photo-slot .ps-hint{font-size:10px;opacity:.7}
+.photo{width:100%;height:100%;object-fit:cover}
+
+header{border-bottom:2px solid var(--ink);position:sticky;top:0;background:var(--paper);z-index:9}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.brand{font-family:var(--display);font-size:20px;letter-spacing:.04em}
+nav{display:flex;gap:24px;font-size:14px;font-weight:600}
+.join{background:var(--ink);color:var(--paper);padding:8px 16px;font-family:var(--display);font-size:14px;letter-spacing:.06em}
+
+/* hero — 좌 큰 글자 · 우 사진 */
+.hero{display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid var(--ink);min-height:560px}
+.hero .txt{padding:56px 48px 56px 0;display:flex;flex-direction:column;justify-content:space-between}
+.hero h1{font-size:clamp(56px,9vw,132px);line-height:.9}
+.hero h1 .o{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero p{font-size:17px;color:var(--ink2);max-width:440px;margin-top:24px}
+.hero .num{display:flex;gap:28px;margin-top:32px}
+.hero .num b{display:block;font-family:var(--display);font-size:40px;line-height:1}
+.hero .num span{font-size:11px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase}
+.hero .frame{border-width:0 0 0 2px;height:100%}
+
+/* 사진 띠 */
+.strip{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:2px solid var(--ink)}
+.strip .frame{aspect-ratio:1/1;border-width:0 2px 0 0}
+.strip .frame:last-child{border-right:0}
+
+section{padding:84px 0}
+.sec{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:30px}
+.sec h2{font-family:var(--display);font-size:34px;letter-spacing:.02em;text-transform:uppercase}
+.sec small{color:var(--mute);font-size:13px}
+
+/* about — 문장 + 운영진 한 줄 */
+.about .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about h3{font-size:30px;font-weight:800;line-height:1.25;letter-spacing:-.02em}
+.about p{margin-top:18px;font-size:16px;color:var(--ink2);line-height:1.75}
+.about dl{display:grid;grid-template-columns:110px 1fr;gap:10px 14px;font-size:14px;border-top:2px solid var(--ink);padding-top:16px}
+.about dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:3px}
+.crew{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap}
+.crew li{display:flex;align-items:center;gap:10px;font-size:13px}
+.crew .frame{width:44px;height:44px;border-radius:50%;flex:none}
+.crew b{display:block;font-weight:700}
+.crew span{color:var(--mute);font-size:12px}
+
+/* schedule — 세로 타임라인 */
+.sched{background:var(--soft);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.tl{border-left:2px solid var(--ink);margin-left:8px}
+.tl li{display:grid;grid-template-columns:120px 1fr auto;gap:24px;padding:22px 0 22px 32px;position:relative;border-bottom:1px solid #ddd;align-items:baseline}
+.tl li:last-child{border:0}
+.tl li::before{content:'';position:absolute;left:-7px;top:30px;width:12px;height:12px;background:var(--ink);border-radius:50%}
+.tl .day{font-family:var(--display);font-size:30px;line-height:1}
+.tl .day small{display:block;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:0}
+.tl h4{font-size:17px;font-weight:800}
+.tl p{font-size:13px;color:var(--ink2);margin-top:4px}
+.tl .lv{font-size:11px;letter-spacing:.1em;border:1px solid var(--ink);padding:3px 8px;white-space:nowrap}
+
+/* records — 대회 기록 표 */
+.records table{width:100%;border-collapse:collapse;font-size:14px}
+.records th{text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:10px 8px;border-bottom:2px solid var(--ink)}
+.records td{padding:14px 8px;border-bottom:1px solid #ddd}
+.records td:last-child{font-family:var(--display);font-size:18px;text-align:right}
+
+/* join — 한 줄 폼 */
+.joinbox{background:var(--ink);color:var(--paper)}
+.joinbox h2{font-family:var(--display);font-size:clamp(40px,7vw,88px);line-height:.95}
+.joinbox p{margin-top:16px;font-size:15px;color:#bbb;max-width:560px}
+.joinbox form{margin-top:30px;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px}
+.joinbox input,.joinbox select{font:inherit;font-size:14px;padding:14px;border:2px solid var(--paper);background:transparent;color:var(--paper);border-radius:0}
+.joinbox select option{color:var(--ink)}
+.joinbox input::placeholder{color:#999}
+.joinbox button{font-family:var(--display);font-size:18px;letter-spacing:.06em;padding:0 28px;background:var(--paper);color:var(--ink);border:0;cursor:pointer}
+
+footer{padding:28px 0;font-size:12px;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:2px solid var(--ink)}
+
+@media (max-width:820px){
+  nav{display:none}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero .txt{padding:40px 0}
+  .hero .frame{border-width:2px 0 0 0;min-height:260px}
+  .strip{grid-template-columns:repeat(3,1fr)}
+  .strip .frame:nth-child(3n){border-right:0}
+  .about .grid{grid-template-columns:1fr}
+  .tl li{grid-template-columns:1fr;gap:6px}
+  .joinbox form{grid-template-columns:1fr}
+  .joinbox button{padding:14px}
+}
+</style>
+</head>
+<body>
+
+<!--
+  ┌──────────────────────────────────────────────────────────────┐
+  │  Sprint 스타일 홈페이지 템플릿 (동아리 · 동호회)                     │
+  │  1. 예시 텍스트(한강 러너스 · 요일 · 장소 · 멤버)를 본인 것으로 교체    │
+  │  2. photo-slot div 를 <img class="photo" src="..."> 로 교체     │
+  │  3. 가입 폼: form action 을 구글폼 링크 또는 Formspree 로 교체 가능    │
+  │  4. 색: :root 의 --ink(검정) --soft(회색 배경)                      │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<header>
+  <div class="wrap">
+    <a href="#" class="brand">HANGANG RUNNERS</a>
+    <nav><a href="#about">소개</a><a href="#schedule">정기 모임</a><a href="#records">기록</a></nav>
+    <a href="#join" class="join">JOIN</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero" style="padding:0">
+    <div class="txt">
+      <div>
+        <h1 class="display">RUN<br><span class="o">TOGETHER</span></h1>
+        <p>예시대학교 러닝 동아리 한강 러너스. 2019년 여섯 명으로 시작해 지금은 매주 화 · 목 · 토 한강에서 함께 뜁니다. 기록보다 꾸준함, 혼자보다 같이.</p>
+      </div>
+      <div class="num">
+        <div><b>128</b><span>Members</span></div>
+        <div><b>7</b><span>Years</span></div>
+        <div><b>312</b><span>Runs</span></div>
+        <div><b>42</b><span>Finishers '25</span></div>
+      </div>
+    </div>
+    <div class="frame"><div class="photo-slot"><div class="ps-label">Hero Photo</div><div class="ps-hint">세로 · 달리는 순간</div></div></div>
+  </section>
+</div>
+
+<div class="strip">
+  <div class="frame"><div class="photo-slot"><div class="ps-label">01</div></div></div>
+  <div class="frame"><div class="photo-slot"><div class="ps-label">02</div></div></div>
+  <div class="frame"><div class="photo-slot"><div class="ps-label">03</div></div></div>
+  <div class="frame"><div class="photo-slot"><div class="ps-label">04</div></div></div>
+  <div class="frame"><div class="photo-slot"><div class="ps-label">05</div></div></div>
+  <div class="frame"><div class="photo-slot"><div class="ps-label">06</div></div></div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="sec"><h2>About</h2><small>Since 2019 · 예시대학교 중앙동아리</small></div>
+    <div class="grid">
+      <div>
+        <h3>페이스는 달라도<br>출발선은 같습니다.</h3>
+        <p>5km 를 처음 완주하는 사람과 풀코스를 준비하는 사람이 같은 트랙에서 만납니다. 페이스 그룹을 나눠 달리고, 마지막에는 항상 같이 스트레칭합니다. 매년 봄 · 가을 대회에 단체로 출전하고, 겨울엔 실내 트레이닝을 합니다.</p>
+      </div>
+      <dl>
+        <dt>정기 모임</dt><dd>화 07:00 · 목 19:30 · 토 08:00 (주 3회, 자유 참석)</dd>
+        <dt>페이스 그룹</dt><dd>A 5:00 · B 6:00 · C 7:00 · 워킹 그룹</dd>
+        <dt>회비</dt><dd>학기당 20,000원 (대회 참가비 · 티셔츠 별도)</dd>
+        <dt>단톡방</dt><dd>가입 신청 후 운영진이 초대</dd>
+      </dl>
+    </div>
+    <ul class="crew">
+      <li><div class="frame"><div class="photo-slot"></div></div><div><b>김민준</b><span>회장 · 체육교육과</span></div></li>
+      <li><div class="frame"><div class="photo-slot"></div></div><div><b>이서아</b><span>부회장 · 경영학과</span></div></li>
+      <li><div class="frame"><div class="photo-slot"></div></div><div><b>박지호</b><span>총무 · 컴퓨터공학과</span></div></li>
+      <li><div class="frame"><div class="photo-slot"></div></div><div><b>정하은</b><span>페이스 리더 · 간호학과</span></div></li>
+      <li><div class="frame"><div class="photo-slot"></div></div><div><b>최우진</b><span>홍보 · 미디어학과</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sched" id="schedule">
+  <div class="wrap">
+    <div class="sec"><h2>Weekly</h2><small>비 오면 단톡방 공지</small></div>
+    <ul class="tl">
+      <li><div class="day display">TUE<small>07:00</small></div><div><h4>잠실 한강공원 · 이지 런</h4><p>6 ~ 8km. 출근 · 수업 전 가볍게. 집합: 잠실 선착장 앞.</p></div><span class="lv">ALL LEVELS</span></li>
+      <li><div class="day display">THU<small>19:30</small></div><div><h4>반포 한강공원 · 템포 · 인터벌</h4><p>페이스 그룹별 진행. 집합: 세빛섬 입구.</p></div><span class="lv">B 이상</span></li>
+      <li><div class="day display">SAT<small>08:00</small></div><div><h4>여의도 한강공원 · 장거리 + 브런치</h4><p>10 ~ 21km. 신입은 이 날 처음 오세요. 집합: 물빛광장.</p></div><span class="lv">신입 환영</span></li>
+      <li><div class="day display">SUN<small>월 1회</small></div><div><h4>트레일 · 원정 런</h4><p>남산 · 북한산 둘레길 · 타 대학 크루 합동 런. 매월 첫째 주 공지.</p></div><span class="lv">선택</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="records" id="records">
+  <div class="wrap">
+    <div class="sec"><h2>Records</h2><small>단체 출전 기록</small></div>
+    <table>
+      <tr><th>대회</th><th>날짜</th><th>참가</th><th>결과</th></tr>
+      <tr><td>서울 하프마라톤</td><td>2025.04</td><td>42명</td><td>전원 완주</td></tr>
+      <tr><td>예시 10K 대학 대항전</td><td>2025.10</td><td>36명</td><td>단체 2위</td></tr>
+      <tr><td>한강 나이트 런 5K</td><td>2025.08</td><td>58명</td><td>최다 참가 크루</td></tr>
+      <tr><td>예시 마라톤 풀코스</td><td>2026.03</td><td>9명</td><td>7명 완주</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="joinbox" id="join">
+  <div class="wrap">
+    <h2 class="display">Join the crew</h2>
+    <p>신청서를 보내주시면 운영진이 단톡방 링크를 보내드립니다. 첫 참석은 토요일 여의도, 러닝화만 있으면 됩니다.</p>
+    <!-- 구글폼을 쓰려면 이 form 을 <a href="구글폼 링크"> 버튼 하나로 교체 -->
+    <form action="mailto:hello@example.com" method="post" enctype="text/plain">
+      <input name="name" placeholder="이름" required>
+      <input name="dept" placeholder="학과 · 학번" required>
+      <select name="level"><option>러닝 경험 없음</option><option>5km 가능</option><option>10km 가능</option><option>하프 이상</option></select>
+      <button type="submit">GO →</button>
+    </form>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div>© 2026 한강 러너스 · Sprint Homepage Template</div>
+  <div><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a> · <a href="mailto:hello@example.com">hello@example.com</a></div>
+</footer>
+</body>
+</html>

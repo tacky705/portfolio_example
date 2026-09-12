@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage Template — Compile 스타일 스터디 · 강좌 홈페이지</title>
+<meta name="description" content="스터디 · 강좌 · 아카데미용 Compile 스타일 원페이지 홈페이지 템플릿. 다크 네이비 · 터미널 창 히어로 · 과정 가로 행 · 주차 카드 · 큰 후기 · 모집 일정 스텝.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   Compile 스타일 — 다크 네이비 · 터미널 창 · 과정 행 · 주차 카드 · 큰 후기 · 모집 스텝
+   색은 아래 :root 만 바꾸면 전체 반영
+   ===================================================== */
+:root{
+  --bg:#0b0d1b;
+  --bg2:#12152a;
+  --ink:#f2f3ff;
+  --ink2:#b3b6d1;
+  --mute:#6e7190;
+  --violet:#4e35f4;
+  --violet2:#8a78ff;
+  --green:#3ddc84;
+  --line:#23264a;
+  --slot:#181b34;
+  --slot2:#1f2240;
+  --mono:'Roboto Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.mono{font-family:var(--mono)}
+.frame{background:var(--slot);overflow:hidden;position:relative;border:1px solid var(--line);border-radius:6px}
+.photo-slot{width:100%;height:100%;background:repeating-linear-gradient(135deg,var(--slot) 0 14px,var(--slot2) 14px 15px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--mute);text-align:center;padding:12px}
+.photo-slot .ps-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.photo-slot .ps-hint{font-size:10px;opacity:.7}
+.photo{width:100%;height:100%;object-fit:cover}
+
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,13,27,.9);backdrop-filter:blur(8px);z-index:9}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{font-family:var(--mono);font-weight:700;font-size:15px}
+.brand i{color:var(--violet2);font-style:normal}
+nav{display:flex;gap:22px;font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.enroll{background:var(--violet);color:#fff;padding:8px 14px;border-radius:4px;font-family:var(--mono);font-size:12px;font-weight:700}
+
+/* hero — 텍스트 좌 · 터미널 창 우 */
+.hero{padding:72px 0;border-bottom:1px solid var(--line)}
+.hero .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(36px,5.5vw,62px);font-weight:800;line-height:1.1;letter-spacing:-.03em}
+.hero h1 span{color:var(--violet2)}
+.hero p{margin-top:20px;font-size:16px;color:var(--ink2);max-width:520px;line-height:1.75}
+.hero .btns{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:4px;font-family:var(--mono);font-size:13px;font-weight:700;border:1px solid var(--line);color:var(--ink)}
+.btn.fill{background:var(--violet);border-color:var(--violet);color:#fff}
+.term{background:#05060f;border:1px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:13px;line-height:1.8;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.term .bar{background:var(--bg2);padding:8px 12px;display:flex;gap:6px;border-bottom:1px solid var(--line)}
+.term .bar i{width:10px;height:10px;border-radius:50%;background:#33365a}
+.term pre{padding:18px;white-space:pre-wrap;color:var(--ink2)}
+.term .p{color:var(--violet2)}
+.term .ok{color:var(--green)}
+.term .c{color:var(--mute)}
+.stats{display:flex;gap:32px;margin-top:30px;font-family:var(--mono);font-size:12px;color:var(--mute)}
+.stats b{display:block;font-size:22px;color:var(--ink)}
+
+section{padding:84px 0}
+.sec{margin-bottom:32px;display:flex;justify-content:space-between;align-items:baseline}
+.sec small{font-family:var(--mono);font-size:12px;color:var(--violet2)}
+.sec h2{font-size:28px;font-weight:800;letter-spacing:-.02em}
+
+/* courses — 가로 행 */
+.courses li{display:grid;grid-template-columns:90px 1.2fr 1.6fr auto;gap:24px;align-items:center;padding:24px 0;border-top:1px solid var(--line)}
+.courses li:last-child{border-bottom:1px solid var(--line)}
+.courses .n{font-family:var(--mono);font-size:12px;color:var(--violet2)}
+.courses h4{font-size:19px;font-weight:700}
+.courses .lv{font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:4px}
+.courses p{font-size:14px;color:var(--ink2);line-height:1.7}
+.courses .when{font-family:var(--mono);font-size:12px;color:var(--ink2);text-align:right;white-space:nowrap}
+.courses .when b{display:block;color:var(--ink)}
+
+/* curriculum — 주차 카드 그리드 */
+.curri{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.week{border:1px solid var(--line);border-radius:6px;padding:18px;background:var(--bg)}
+.week em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--violet2)}
+.week b{display:block;font-size:15px;font-weight:700;margin-top:8px}
+.week small{display:block;color:var(--mute);font-size:12px;margin-top:4px;line-height:1.6}
+.week.hl{border-color:var(--violet2)}
+.curri .info{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;font-size:13px;color:var(--ink2)}
+.curri .info b{display:block;font-family:var(--mono);font-size:11px;color:var(--mute);margin-bottom:4px}
+
+/* reviews — 큰 인용 하나 + 작은 둘 */
+.reviews .grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+.big{border:1px solid var(--violet2);border-radius:8px;padding:34px;font-size:20px;line-height:1.6;font-weight:500}
+.big .who{margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--violet2)}
+.small{display:grid;gap:16px}
+.small div{border:1px solid var(--line);border-radius:8px;padding:20px;font-size:14px;color:var(--ink2);line-height:1.7}
+.small b{display:block;margin-top:10px;color:var(--ink);font-size:12px;font-family:var(--mono)}
+
+/* enroll — 스텝 + 폼 */
+.enrollbox{background:var(--violet);color:#fff}
+.enrollbox .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.enrollbox h2{font-size:clamp(28px,4.5vw,46px);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+.steps{margin-top:26px;border-top:1px solid rgba(255,255,255,.4)}
+.steps li{display:grid;grid-template-columns:40px 1fr auto;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.25);font-size:14px;align-items:baseline}
+.steps em{font-style:normal;font-family:var(--mono);font-size:12px;color:#dcd8ff}
+.steps span{font-family:var(--mono);font-size:11px;color:#dcd8ff}
+.enrollbox form{display:grid;gap:8px;background:rgba(0,0,0,.18);padding:22px;border-radius:8px}
+.enrollbox input,.enrollbox select,.enrollbox textarea{width:100%;font:inherit;font-size:14px;padding:12px;border:1px solid #fff;background:transparent;color:#fff;border-radius:4px}
+.enrollbox select option{color:var(--bg)}
+.enrollbox input::placeholder,.enrollbox textarea::placeholder{color:#c9c3ff}
+.enrollbox button{font-family:var(--mono);font-weight:700;font-size:14px;padding:14px;background:var(--bg);color:#fff;border:0;border-radius:4px;cursor:pointer}
+
+footer{border-top:1px solid var(--line);padding:30px 0;font-family:var(--mono);font-size:11px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (max-width:820px){
+  nav{display:none}
+  .hero .grid,.reviews .grid,.enrollbox .grid{grid-template-columns:1fr}
+  .courses li{grid-template-columns:1fr;gap:8px}
+  .courses .when{text-align:left}
+  .weeks,.curri .info{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!--
+  ┌──────────────────────────────────────────────────────────────┐
+  │  Compile 스타일 홈페이지 템플릿 (스터디 · 강좌 · 아카데미)            │
+  │  1. 예시 텍스트(코드밋 · 과정명 · 주차 · 후기)를 본인 것으로 교체       │
+  │  2. photo-slot div 를 <img class="photo" src="..."> 로 교체     │
+  │  3. 신청 폼: action 을 구글폼 링크로 교체 가능                       │
+  │  4. 색: :root 의 --bg(배경) --violet(포인트)                       │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<header>
+  <div class="wrap">
+    <a href="#" class="brand">code<i>meet</i>_</a>
+    <nav><a href="#courses">courses</a><a href="#curriculum">curriculum</a><a href="#reviews">reviews</a><a href="#enroll">enroll</a></nav>
+    <a href="#enroll" class="enroll">ENROLL</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <h1>강의 말고,<br><span>같이 짜는</span> 12주.</h1>
+      <p>코드밋은 예시대학교 학생들이 운영하는 개발 스터디입니다. 강의를 듣는 대신 매주 과제를 만들고 서로 리뷰합니다. 7기째, 수료생 210명.</p>
+      <div class="btns"><a href="#enroll" class="btn fill">7기 신청하기</a><a href="#curriculum" class="btn">커리큘럼</a></div>
+      <div class="stats"><div><b>210</b>수료생</div><div><b>84%</b>완주율</div><div><b>10</b>멘토</div><div><b>3</b>트랙</div></div>
+    </div>
+    <div class="term">
+      <div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="p">$</span> codemeet init --season 7
+<span class="c"># 3 tracks · 12 weeks · weekly review</span>
+<span class="ok">✓</span> track/web-basics      화 19:00  20 seats
+<span class="ok">✓</span> track/react           목 19:00  16 seats
+<span class="ok">✓</span> track/data-analysis   토 10:00  20 seats
+<span class="p">$</span> codemeet apply --deadline 2026-03-13
+<span class="ok">✓</span> OT 03-17 · Week 1 03-24 · Demo day 06-09
+<span class="p">$</span> <span style="animation:blink 1s steps(1) infinite">▌</span></pre>
+    </div>
+  </div>
+</section>
+<style>@keyframes blink{50%{opacity:0}}</style>
+
+<section id="courses">
+  <div class="wrap">
+    <div class="sec"><h2>3개 과정</h2><small>// courses</small></div>
+    <ul class="courses">
+      <li><span class="n">TRACK 01</span><div><h4>웹 기초 — HTML · CSS · JS</h4><div class="lv">BEGINNER · 비전공자 기준</div></div><p>브라우저가 어떻게 그리는지부터 시작해 12주 뒤 내 포트폴리오 사이트를 GitHub Pages 에 올립니다.</p><div class="when"><b>화 19:00</b>12주 · 20명</div></li>
+      <li><span class="n">TRACK 02</span><div><h4>React 로 서비스 만들기</h4><div class="lv">INTERMEDIATE · JS 경험자</div></div><p>4인 팀으로 실제 쓸 수 있는 서비스 하나를 기획 · 개발 · 배포. 코드 리뷰와 데모데이 포함.</p><div class="when"><b>목 19:00</b>12주 · 16명</div></li>
+      <li><span class="n">TRACK 03</span><div><h4>데이터 분석 — Python · SQL</h4><div class="lv">BEGINNER · 통계 기초 병행</div></div><p>공공데이터로 질문을 세우고 pandas · SQL 로 답을 찾아 노트북 리포트로 정리합니다.</p><div class="when"><b>토 10:00</b>12주 · 20명</div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="curri" id="curriculum">
+  <div class="wrap">
+    <div class="sec"><h2>주차별 진행 — Track 01</h2><small>// curriculum</small></div>
+    <div class="weeks">
+      <div class="week"><em>WEEK 01</em><b>환경 세팅 · Git</b><small>VS Code · GitHub · 첫 커밋</small></div>
+      <div class="week"><em>WEEK 02-03</em><b>HTML · CSS 레이아웃</b><small>Flex · Grid · 반응형</small></div>
+      <div class="week"><em>WEEK 04-05</em><b>JavaScript 기초</b><small>DOM · 이벤트 · fetch</small></div>
+      <div class="week hl"><em>WEEK 06</em><b>중간 프로젝트</b><small>원페이지 사이트 · 페어 리뷰</small></div>
+      <div class="week"><em>WEEK 07-09</em><b>인터랙션 · API</b><small>공개 API · 로컬 스토리지</small></div>
+      <div class="week"><em>WEEK 10-11</em><b>개인 포트폴리오</b><small>1:1 코드 리뷰 2회</small></div>
+      <div class="week hl"><em>WEEK 12</em><b>배포 · 데모데이</b><small>GitHub Pages · 발표 5분</small></div>
+      <div class="week"><em>AFTER</em><b>수료 · 동문 채널</b><small>멘토 추천 · 다음 기수 조교</small></div>
+    </div>
+    <div class="info">
+      <div><b>PLACE</b>예시대학교 공학관 305호 · Discord 병행</div>
+      <div><b>FEE</b>학기당 30,000원 · 완주 시 50% 환급</div>
+      <div><b>MENTOR</b>현직 개발자 4명 · 수료생 6명</div>
+      <div><b>RULE</b>결석 3회 시 수료 불가 · 과제 금요일 자정</div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec"><h2>수료생 후기</h2><small>// reviews</small></div>
+    <div class="grid">
+      <div class="big">“강의 영상 백날 봐도 안 되던 게, 매주 과제 내고 리뷰 받으면서 늘었어요. 12주 뒤에 포트폴리오 사이트가 생겼고, 그걸로 인턴 면접을 봤습니다.”<div class="who">김하늘 · 6기 · 웹 기초 · 경영학과</div></div>
+      <div class="small">
+        <div>팀 프로젝트로 만든 서비스를 실제로 학교 사람들이 써 줬어요.<b>이준서 · 5기 · React</b></div>
+        <div>엑셀만 쓰던 사람이 SQL 로 학교 데이터 리포트를 썼어요.<b>박서윤 · 6기 · 데이터 분석</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enrollbox" id="enroll">
+  <div class="wrap grid">
+    <div>
+      <h2>7기 모집<br>3. 2 — 3. 13</h2>
+      <ul class="steps">
+        <li><em>01</em><div>신청서 제출</div><span>~ 03-13</span></li>
+        <li><em>02</em><div>온라인 사전 과제 (2시간 분량)</div><span>03-14 ~ 03-15</span></li>
+        <li><em>03</em><div>합격 안내 · Discord 초대</div><span>03-16</span></li>
+        <li><em>04</em><div>OT</div><span>03-17 19:00</span></li>
+        <li><em>05</em><div>1주차 시작</div><span>03-24</span></li>
+      </ul>
+    </div>
+    <form action="mailto:hello@example.com" method="post" enctype="text/plain">
+      <input name="name" placeholder="이름" required>
+      <input name="email" type="email" placeholder="이메일" required>
+      <input name="dept" placeholder="학과 · 학년 (또는 소속)">
+      <select name="track"><option>TRACK 01 · 웹 기초</option><option>TRACK 02 · React</option><option>TRACK 03 · 데이터 분석</option></select>
+      <textarea name="why" rows="3" placeholder="지원 이유 · 현재 수준 (3줄)"></textarea>
+      <button type="submit">submit --track</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 codemeet · Compile Homepage Template</div>
+    <div><a href="https://github.com/" target="_blank" rel="noopener">github</a> · <a href="https://discord.com/" target="_blank" rel="noopener">discord</a> · <a href="mailto:hello@example.com">hello@example.com</a></div>
+  </div>
+</footer>
+</body>
+</html>

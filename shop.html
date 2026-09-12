@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>홈페이지 디자인 스토어</title>
+<meta name="description" content="음악·예술 전공생과 개발자를 위한 원페이지 포트폴리오 홈페이지 디자인 판매">
+<style>
+/* =====================================================
+   설정은 아래 <script> 맨 위 SELLER / CONTACT / PRODUCTS 만 바꾸면 됨
+   ===================================================== */
+:root{
+  --paper:#ffffff;
+  --ink:#111111;
+  --ink2:#3a3a3a;
+  --mute:#8a8a8a;
+  --line:#111111;
+  --soft:#f4f4f2;
+  --accent:#1d1dff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+h1,h2,h3,h4{word-break:keep-all}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:'Pretendard Variable',Pretendard,'Noto Sans KR','Malgun Gothic',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* header */
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:600;letter-spacing:.02em}
+.brand span{color:var(--mute);font-weight:300;margin-left:8px;font-size:13px}
+.brand [data-seller]{color:var(--ink);font-weight:600;margin:0;font-size:inherit}
+nav a{font-size:14px;margin-left:24px;color:var(--ink2)}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(34px,5vw,60px);font-weight:200;line-height:1.15;letter-spacing:-.02em}
+.hero h1 b{font-weight:600}
+.hero p{margin-top:24px;max-width:600px;color:var(--ink2);font-size:17px}
+.hero .cta{display:inline-block;margin-top:36px;padding:14px 28px;border:1px solid var(--ink);font-size:14px;letter-spacing:.06em}
+.hero .cta:hover{background:var(--ink);color:var(--paper)}
+
+/* maker (제작자 소개) */
+.maker{padding:40px 0;background:var(--soft);border-bottom:1px solid var(--line)}
+.maker .grid{display:grid;grid-template-columns:96px 1fr auto;gap:28px;align-items:center}
+.maker .avatar{width:96px;height:96px;border-radius:50%;border:1px solid var(--ink);object-fit:cover}
+.maker .slot{display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mute);background:repeating-linear-gradient(135deg,#e9e9e6 0 10px,#dcdcd8 10px 11px)}
+.maker .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.maker h2{font-size:24px;font-weight:600;margin-top:4px}
+.maker p{margin-top:8px;font-size:15px;color:var(--ink2);max-width:640px}
+.maker p b{font-weight:600;color:var(--ink)}
+.badges{display:flex;flex-direction:column;gap:10px}
+.badges li{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink2);white-space:nowrap}
+.badges img{height:30px;width:120px;object-fit:contain;object-position:left}
+
+/* section */
+section{padding:72px 0}
+section+section{border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:36px;gap:12px;flex-wrap:wrap}
+.sec-head h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.sec-head small{color:var(--mute);font-size:13px}
+
+/* catalog */
+.cat-head{margin:0 0 28px}
+.cat-head+.grid+.cat-head{margin-top:72px;padding-top:48px;border-top:1px solid var(--line)}
+.cat-head h3{font-size:clamp(22px,3vw,30px);font-weight:500;letter-spacing:-.01em}
+.cat-head h3 span{font-size:13px;font-weight:300;color:var(--mute);margin-left:12px;letter-spacing:0}
+.cat-head p{margin-top:6px;color:var(--ink2);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 32px}
+.card{border:1px solid var(--line);display:flex;flex-direction:column}
+.preview{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:var(--soft);display:block}
+.preview iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform-origin:0 0;pointer-events:none;background:#fff}
+.preview::after{content:'새 탭에서 열기';position:absolute;right:12px;bottom:12px;font-size:12px;padding:6px 10px;background:var(--ink);color:var(--paper);opacity:0;transition:opacity .2s}
+.preview:hover::after{opacity:1}
+/* 제작 예정 디자인: 팔레트로 그리는 간이 목업 */
+.card.soon{border-style:dashed}
+.mock{position:absolute;inset:0;background:var(--bg);color:var(--ink);padding:5% 6%;display:flex;flex-direction:column;gap:4%;font-weight:600}
+.mock .m-nav{display:flex;justify-content:space-between;align-items:center;font-size:11px}
+.mock .m-nav i{display:block;width:36%;height:5px;background:var(--ink);opacity:.25}
+.mock .m-nav b{width:14%;height:9px;background:var(--ac);display:block}
+.mock .m-hero{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.mock .m-hero span{font-size:clamp(22px,4.5vw,42px);line-height:1;letter-spacing:-.02em}
+.mock .m-hero small{display:block;width:55%;height:6px;background:var(--ink);opacity:.25}
+.mock .m-hero em{display:block;width:22%;height:12px;background:var(--ac)}
+.mock .m-row{display:flex;gap:3%}
+.mock .m-row i{flex:1;height:38px;background:var(--ink);opacity:.12}
+.mock .m-row i:first-child{background:var(--ac);opacity:.9}
+.badge{display:inline-block;font-size:11px;letter-spacing:.1em;padding:3px 8px;border:1px solid var(--ink);margin-left:8px;vertical-align:middle}
+.body{padding:24px;flex:1;display:flex;flex-direction:column}
+.body .for{font-size:12px;letter-spacing:.12em;color:var(--mute);text-transform:uppercase}
+.body h3{font-size:26px;font-weight:500;margin-top:6px;letter-spacing:-.01em}
+.body .desc{margin-top:12px;color:var(--ink2);font-size:15px}
+.body .sections{margin-top:14px;font-size:13px;color:var(--mute);line-height:1.7}
+.buy{margin-top:auto;padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.price{font-size:22px;font-weight:500}
+.price small{font-size:13px;color:var(--mute);font-weight:300;margin-left:6px}
+.btns{display:flex;gap:8px}
+.btn{padding:11px 18px;border:1px solid var(--ink);font-size:13px;letter-spacing:.04em;white-space:nowrap}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.fill{background:var(--ink);color:var(--paper)}
+.btn.fill:hover{background:var(--accent);border-color:var(--accent)}
+
+/* how */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+.step{border-top:1px solid var(--line);padding-top:18px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);display:block;font-size:12px;color:var(--mute);letter-spacing:.1em;margin-bottom:10px}
+.step h4{font-size:17px;font-weight:500}
+.step p{margin-top:8px;font-size:14px;color:var(--ink2)}
+.included{margin-top:48px;padding:28px;background:var(--soft);display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:start}
+.included h4{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.included ul{list-style:none;font-size:15px;color:var(--ink2)}
+.included li{padding:6px 0;border-bottom:1px solid #ddd}
+.included li:last-child{border:0}
+
+/* custom */
+.custom{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.custom h3{font-size:clamp(26px,3.5vw,40px);font-weight:200;line-height:1.2}
+.custom h3 b{font-weight:600}
+.custom p{margin-top:16px;color:var(--ink2);font-size:15px}
+.custom .btn{display:inline-block;margin-top:24px}
+.custom ul{list-style:none;font-size:15px;color:var(--ink2);line-height:2}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:32px 0;font-size:13px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (max-width:820px){
+  .grid,.custom,.included{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  nav a{margin-left:16px}
+  .hero{padding:64px 0 48px}
+  .maker .grid{grid-template-columns:72px 1fr}
+  .maker .avatar{width:72px;height:72px}
+  .badges{grid-column:2;flex-direction:row;flex-wrap:wrap}
+}
+@media (max-width:480px){
+  .steps{grid-template-columns:1fr}
+  nav a:nth-child(2),nav a:nth-child(3),nav a:nth-child(4){display:none}
+  .brand span:last-child{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><span data-seller></span> Templates <span>홈페이지 디자인 스토어</span></a>
+    <nav>
+      <a href="#maker">소개</a>
+      <a href="#personal">개인</a>
+      <a href="#group">단체</a>
+      <a href="#how">구매 방법</a>
+      <a href="#custom">맞춤 제작</a>
+      <a data-mail href="#">문의</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>링크 하나로 보내는<br><b>나만의 포트폴리오 홈페이지</b></h1>
+    <p>콩쿠르 · 오디션 · 대학원 지원 · 이력서 대신. HTML 파일 하나, 서버 없음, 이름과 사진만 바꾸면 5분 안에 내 주소로 올라갑니다. 개인 포트폴리오 <span data-count-personal></span>종 · 단체용 <span data-count-group></span>종 · <span data-seller></span> 제작.</p>
+    <a class="cta" href="#designs">디자인 보기 ↓</a>
+  </div>
+</section>
+
+<!-- 제작자 소개: 이름은 아래 <script> 의 SELLER, 나머지 문구는 여기서 직접 수정 -->
+<section class="maker" id="maker">
+  <div class="wrap grid">
+    <!-- 사진: 이 div 를 <img class="avatar" src="me.jpg" alt=""> 로 교체 -->
+    <div class="avatar slot">사진</div>
+    <div>
+      <div class="kicker">About the maker</div>
+      <h2><span data-seller></span></h2>
+      <p>한양대학교 공과대학에 재학 중이며, 세계 최대 ERP 기업 <b>SAP</b> 의 <b>IT 팀</b>에서 근무하고 있습니다. 현업에서 시스템을 다루는 감각으로, 학생과 단체가 이름 · 사진만 바꿔 바로 쓸 수 있는 홈페이지를 만듭니다.</p>
+    </div>
+    <ul class="badges">
+      <!-- 로고: Wikimedia Commons 퍼블릭 도메인 파일 (상표는 각 기관 소유 · 소속 표시 용도) -->
+      <li><img src="sap-logo.svg" alt="SAP"><span>IT 팀 · 현재 근무</span></li>
+      <li><img src="hyu-logo.svg" alt="한양대학교"><span>한양대학교 공과대학 · 재학</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="designs">
+  <div class="wrap">
+    <div class="sec-head"><h2>Designs</h2><small>미리보기를 누르면 실제 페이지가 새 탭에서 열립니다 · 구매 후 이름 · 사진만 바꾸면 완성</small></div>
+    <div id="grid"></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head"><h2>How to buy</h2><small>결제 후 24시간 안에 이메일로 전달</small></div>
+    <div class="steps">
+      <div class="step"><h4>디자인 고르기</h4><p>위 카드에서 미리보기로 실제 페이지를 확인하세요.</p></div>
+      <div class="step"><h4>구매 · 문의</h4><p>구매하기 버튼으로 결제하거나 이메일로 문의하세요.</p></div>
+      <div class="step"><h4>파일 받기</h4><p>HTML 파일과 설치 가이드를 이메일로 보내드립니다.</p></div>
+      <div class="step"><h4>내 주소로 올리기</h4><p>이름 · 사진 교체 후 GitHub Pages 에 push. 호스팅 무료.</p></div>
+    </div>
+    <div class="included">
+      <h4>포함 내용</h4>
+      <ul>
+        <li>완성된 원페이지 HTML 파일 1개 (CSS · JS 포함, 빌드 도구 불필요)</li>
+        <li>설치 가이드 — GitHub Pages 배포까지 단계별 설명</li>
+        <li>파일 안 주석으로 색 · 섹션 · 사진 · 영상 임베드 수정 방법 안내</li>
+        <li>모바일 반응형 · 유튜브 / 사운드클라우드 / 스포티파이 임베드 자리</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="custom">
+  <div class="wrap custom">
+    <div>
+      <h3>이름 · 사진 넣는 것까지<br><b>대신 해드립니다</b></h3>
+      <p>HTML 이 낯설면 내용만 보내주세요. 세팅 · 배포 대행, 색 변경, 섹션 추가, 완전 맞춤 제작까지 견적 드립니다.</p>
+      <a class="btn fill" data-mail data-subject="[맞춤 제작 문의]" href="#">맞춤 제작 문의하기</a>
+    </div>
+    <ul>
+      <li>— 세팅 · 배포 대행</li>
+      <li>— 색상 · 폰트 변경</li>
+      <li>— 섹션 추가 · 구조 변경</li>
+      <li>— 완전 맞춤 디자인</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span data-year></span> <span data-seller></span>. All rights reserved.</div>
+    <a data-mail href="#"><span data-contact></span></a>
+  </div>
+</footer>
+
+<script>
+/* =====================================================
+   여기만 수정
+   - buy 에 결제 링크(크몽 · Gumroad · 토스 결제링크 등) 넣으면 구매하기 버튼이 그리로 감
+   - buy 비우면 구매하기 버튼은 CONTACT 로 메일 문의
+   ===================================================== */
+const SELLER  = "이정";                // 판매자 이름
+const CONTACT = "hello@example.com";  // 문의 이메일
+const CATS = {
+  personal: { title:"개인 포트폴리오 제작용", sub:"음악 · 예술 · 디자인 · 개발 — 나 한 사람을 소개하는 원페이지" },
+  group:    { title:"단체용 홈페이지",         sub:"동아리 · 학생회 · 학회 · 비영리 · 전시 — 모임을 소개하고 사람을 모으는 페이지" },
+};
+const PRODUCTS = [
+  /* ---------- 개인 포트폴리오 ---------- */
+  { cat:"personal", file:"index.html",     name:"Scrap",   price:39000, for:"음악 · 공연 · 예술",
+    desc:"흰 종이 위에 사진을 흩뿌린 스크랩북. 가는 글자 · 손글씨 낙서 · 아카이브 잡지 느낌.",
+    sections:"콜라주 Hero · 인트로 · Works 갤러리 · Featured(대표 공연 + 영상) · Performances · About · Awards · Skills · Contact",
+    buy:"" },
+  { cat:"personal", file:"dot.html",       name:"Peach",   price:39000, for:"음악 · 공연 · 예술",
+    desc:"차콜 헤더 밴드를 뚫고 내려오는 대형 사진 · 굵은 글자 · 파란 원 배지 · 살구색 CTA.",
+    sections:"헤더 밴드 + Hello · 히어로 사진 · 배지 · Work 그리드 · About + Selected · CTA 밴드 · 5열 푸터",
+    buy:"" },
+  { cat:"personal", file:"classic.html",   name:"Verde",   price:29000, for:"음악 · 공연 · 예술",
+    desc:"다크 + 초록 카드형. 숫자 Stats 와 카드로 정돈된 인상. 레퍼토리 · 레슨까지 한 페이지.",
+    sections:"Hero · Stats · About · Featured · Performances & Works · Activities · Awards · Skills & Repertoire · Contact",
+    buy:"" },
+  { cat:"personal", file:"studio.html",    name:"Flash",   price:39000, for:"디자이너 · 사진 · 영상",
+    desc:"검정 바탕 · 형광 포인트 · 좌측 세로 내비 · 좌우 분할 히어로 · 번호 매긴 작업 리스트와 큰 이미지 교차.",
+    sections:"Hero(좌 텍스트 · 우 키비주얼) · About 3열 · Works 번호 리스트 + 썸네일 4 · Services 2열 · Contact",
+    buy:"" },
+  { cat:"personal", file:"sound.html",     name:"Ember",   price:39000, for:"작곡가 · 프로듀서 · 싱어송라이터",
+    desc:"다크 + 웜 오렌지. 최신 앨범 커버가 주인공인 히어로 · 트랙리스트 옆 고정 플레이어 · 가로 스크롤 릴리즈 · 연도별 크레딧.",
+    sections:"Hero(커버) · Tracks + Player · Releases 가로 스크롤 · Credits 타임라인 + Setup · Contact",
+    buy:"" },
+
+  /* ---------- 단체용 ---------- */
+  { cat:"group", file:"club.html",       name:"Sprint",  price:49000, for:"동아리 · 동호회",
+    desc:"흑백 · 좌 큰 글자 우 사진 히어로 · 6칸 사진 띠 · 운영진 한 줄 · 요일 세로 타임라인 · 대회 기록 표 · 한 줄 가입 폼.",
+    sections:"Hero(분할) · 사진 띠 · About + 운영진 · Weekly 타임라인 · Records 표 · Join",
+    buy:"" },
+  { cat:"group", file:"society.html",    name:"Forest",  price:49000, for:"학생회 · 비영리 · 시민단체",
+    desc:"딥 그린 · 세리프. 상단 공지 띠 · 사진 좌 텍스트 우 히어로 · 숫자 띠 · 번호 미션 + 사진 · 연혁 · 공지 표 · 가입 / 후원 2열.",
+    sections:"공지 띠 · Hero · 숫자 띠 · Mission 리스트 · History · Notice 표 · Join / Support 카드",
+    buy:"" },
+  { cat:"group", file:"conference.html", name:"Signal",  price:59000, for:"학회 · 행사 · 컨퍼런스",
+    desc:"파란 전면 히어로 + 실시간 카운트다운 · 트랙 3열 띠 · 연사 리스트 행 · 2일 일정 나란히 · 참가비 카드 3 · 한 줄 등록 폼.",
+    sections:"Hero(카운트다운) · Tracks 띠 · Speakers 리스트 · Schedule 2열 · Register · Venue",
+    buy:"" },
+  { cat:"group", file:"academy.html",    name:"Compile", price:49000, for:"스터디 · 강좌 · 아카데미",
+    desc:"다크 네이비 · 모노스페이스. 터미널 창 히어로 · 과정 가로 행 · 주차 카드 8칸 · 큰 인용 후기 · 모집 절차 스텝 + 신청 폼.",
+    sections:"Hero(터미널) · Courses 행 · Curriculum 카드 + 운영 정보 · Reviews · Enroll 스텝 + 폼",
+    buy:"" },
+  { cat:"group", file:"exhibition.html", name:"Noir",    price:49000, for:"전시 · 공연 · 문화 단체",
+    desc:"검정 · 디스플레이 타이포. 포스터 좌 텍스트 우 히어로 · 큰 세리프 스테이트먼트 · 작가 카드 그리드 · 작품 가로 스크롤 · 안내 표 · 티켓.",
+    sections:"Hero(포스터) · Statement · Artists 카드 · Works 가로 스크롤 · Visit 표 + 지도 · Tickets",
+    buy:"" },
+];
+
+const mail = s => `mailto:${CONTACT}?subject=${encodeURIComponent(s)}`;
+document.querySelectorAll('[data-seller]').forEach(e => e.textContent = SELLER);
+document.querySelectorAll('[data-contact]').forEach(e => e.textContent = CONTACT);
+document.querySelectorAll('[data-mail]').forEach(e => e.href = mail(e.dataset.subject || '[홈페이지 문의]'));
+document.querySelector('[data-count-personal]').textContent = PRODUCTS.filter(p => p.cat === 'personal').length;
+document.querySelector('[data-count-group]').textContent = PRODUCTS.filter(p => p.cat === 'group').length;
+document.querySelector('[data-year]').textContent = new Date().getFullYear();
+document.title = `${SELLER} Templates — 홈페이지 디자인 스토어`;
+
+const preview = p => p.file
+  ? `<a class="preview" href="${p.file}" target="_blank" rel="noopener"><iframe src="${p.file}" loading="lazy" title="${p.name} 미리보기" tabindex="-1"></iframe></a>`
+  : `<div class="preview" style="--bg:${p.palette[0]};--ink:${p.palette[1]};--ac:${p.palette[2]}"><div class="mock">
+       <div class="m-nav"><i></i><b></b></div>
+       <div class="m-hero"><span>${p.name}</span><small></small><em></em></div>
+       <div class="m-row"><i></i><i></i><i></i><i></i></div></div></div>`;
+
+const buy = p => p.file
+  ? `<div class="price">₩${p.price.toLocaleString('ko-KR')}<small>1회 구매 · 평생 사용</small></div>
+     <div class="btns">
+       <a class="btn" href="${p.file}" target="_blank" rel="noopener">미리보기</a>
+       <a class="btn fill" href="${p.buy || mail(`[구매] ${p.name} 템플릿`)}"${p.buy ? ' target="_blank" rel="noopener"' : ''}>구매하기</a>
+     </div>`
+  : `<div class="price" style="font-size:15px;font-weight:300;color:var(--mute)">사전 문의 시 우선 제작 · 가격 협의</div>
+     <div class="btns"><a class="btn" href="${mail(`[사전 문의] ${p.name} 디자인`)}">사전 문의</a></div>`;
+
+const card = p => `
+  <article class="card${p.file ? '' : ' soon'}">
+    ${preview(p)}
+    <div class="body">
+      <div class="for">${p.for}</div>
+      <h3>${p.name}${p.file ? '' : '<span class="badge">제작 예정</span>'}</h3>
+      <p class="desc">${p.desc}</p>
+      <p class="sections">${p.sections}</p>
+      <div class="buy">${buy(p)}</div>
+    </div>
+  </article>`;
+
+document.getElementById('grid').innerHTML = Object.entries(CATS).map(([k, c]) => {
+  const items = PRODUCTS.filter(p => p.cat === k);
+  return `
+  <div class="cat-head" id="${k}">
+    <h3>${c.title} <span>${items.length}종 · 판매 중 ${items.filter(p => p.file).length}</span></h3>
+    <p>${c.sub}</p>
+  </div>
+  <div class="grid">${items.map(card).join('')}</div>`;
+}).join('');
+
+// 미리보기 iframe 을 카드 폭에 맞춰 축소 (1280px 기준)
+const ro = new ResizeObserver(es => es.forEach(e => {
+  e.target.querySelector('iframe').style.transform = `scale(${e.contentRect.width / 1280})`;
+}));
+document.querySelectorAll('.preview iframe').forEach(el => ro.observe(el.parentElement));
+</script>
+</body>
+</html>

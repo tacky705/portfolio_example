@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage Template — Forest 스타일 학생회 · 비영리 단체 홈페이지</title>
+<meta name="description" content="학생회 · 비영리 · 시민단체용 Forest 스타일 원페이지 홈페이지 템플릿. 딥 그린 · 세리프 · 사진 좌 · 숫자 띠 · 번호 미션 · 공지 표 · 후원 안내.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   Forest 스타일 — 딥 그린 · 세리프 · 사진 좌 텍스트 우 · 숫자 띠 · 번호 미션 · 공지 표
+   색은 아래 :root 만 바꾸면 전체 반영
+   ===================================================== */
+:root{
+  --green:#071413;
+  --green2:#0f2422;
+  --olive:#748336;
+  --olive2:#a7b86b;
+  --paper:#f4f2ea;
+  --ink:#111511;
+  --ink2:#4a4f46;
+  --mute:#8a8f86;
+  --line:#d8d5c8;
+  --slot:#e6e3d6;
+  --slot2:#d9d6c8;
+  --serif:'Libre Baskerville','Noto Serif KR',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,'Noto Sans KR',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.serif{font-family:var(--serif)}
+.frame{background:var(--slot);overflow:hidden;position:relative}
+.photo-slot{width:100%;height:100%;background:repeating-linear-gradient(135deg,var(--slot) 0 14px,var(--slot2) 14px 15px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--mute);text-align:center;padding:12px}
+.photo-slot .ps-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.photo-slot .ps-hint{font-size:10px;opacity:.7}
+.photo{width:100%;height:100%;object-fit:cover}
+
+/* 상단 얇은 안내 띠 + 헤더 */
+.topbar{background:var(--olive);color:#fff;font-size:12px;text-align:center;padding:7px 0}
+.topbar b{font-weight:700}
+header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.brand{font-family:var(--serif);font-weight:700;font-size:17px}
+.brand i{color:var(--olive);font-style:normal}
+nav{display:flex;gap:24px;font-size:13px;color:var(--ink2)}
+.support{background:var(--green);color:#fff;padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:.08em}
+
+/* hero — 사진 좌 · 텍스트 우 */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:560px;border-bottom:1px solid var(--line)}
+.hero .frame{border-right:1px solid var(--line)}
+.hero .txt{padding:64px 0 64px 56px;display:flex;flex-direction:column;justify-content:center}
+.hero .since{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:700}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4.6vw,58px);line-height:1.15;margin-top:14px}
+.hero h1 em{font-style:italic;color:var(--olive)}
+.hero p{margin-top:20px;font-size:16px;color:var(--ink2);line-height:1.8;max-width:480px}
+.hero .btns{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;font-size:13px;font-weight:700;letter-spacing:.06em;border:1px solid var(--ink)}
+.btn.fill{background:var(--green);border-color:var(--green);color:#fff}
+
+/* 숫자 띠 */
+.nums{background:var(--green);color:var(--paper)}
+.nums .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.nums div{padding:28px 0;border-right:1px solid #24403c}
+.nums div:last-child{border:0}
+.nums b{display:block;font-family:var(--serif);font-size:38px;color:var(--olive2);line-height:1}
+.nums span{font-size:12px;color:#cfd3c6;display:block;margin-top:6px}
+
+section{padding:96px 0}
+.sec{margin-bottom:36px}
+.sec small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);font-weight:700}
+.sec h2{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1.2;margin-top:8px}
+
+/* mission — 번호 세로 리스트 */
+.mission li{display:grid;grid-template-columns:120px 1fr 1fr;gap:32px;padding:30px 0;border-top:1px solid var(--ink);align-items:start}
+.mission li:last-child{border-bottom:1px solid var(--ink)}
+.mission .no{font-family:var(--serif);font-size:56px;line-height:1;color:var(--olive)}
+.mission b{font-family:var(--serif);font-size:22px;font-weight:400;display:block}
+.mission p{font-size:14px;color:var(--ink2);line-height:1.75}
+.mission .frame{aspect-ratio:16/9;max-width:360px;justify-self:end;width:100%}
+
+/* report — 연혁 + 사진 */
+.report{background:var(--green2);color:var(--paper)}
+.report .sec small{color:var(--olive2)}
+.report .grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.report li{display:grid;grid-template-columns:80px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #2b3d3a;font-size:14px;color:#e0e3d9}
+.report li:first-child{border-top:1px solid #2b3d3a}
+.report li em{font-style:normal;color:var(--olive2);font-family:var(--serif);font-size:13px}
+.report .photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.report .frame{aspect-ratio:1/1}
+.report .frame:first-child{grid-column:span 2;aspect-ratio:2/1}
+
+/* notice — 표 */
+.notice table{width:100%;border-collapse:collapse;font-size:14px}
+.notice th{text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:10px 8px;border-bottom:1px solid var(--ink)}
+.notice td{padding:14px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.notice td:first-child{font-family:var(--serif);white-space:nowrap;width:110px;color:var(--olive)}
+.notice td b{font-weight:600;display:block}
+.notice td small{color:var(--mute);font-size:12px}
+.notice td:last-child{white-space:nowrap;color:var(--mute);font-size:12px}
+
+/* support — 후원 · 가입 2열 */
+.joinbox{background:var(--olive);color:#fff}
+.joinbox .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.joinbox .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.35);padding:32px}
+.joinbox h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.2}
+.joinbox p{margin-top:12px;font-size:14px;line-height:1.75;color:#f2f5e6}
+.joinbox dl{margin-top:18px;font-size:13px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px}
+.joinbox dt{color:#e6ebd5;opacity:.8}
+.joinbox form{margin-top:18px;display:grid;gap:8px}
+.joinbox input,.joinbox select{width:100%;font:inherit;font-size:14px;padding:12px;border:1px solid #fff;background:transparent;color:#fff;border-radius:0}
+.joinbox select option{color:var(--ink)}
+.joinbox input::placeholder{color:#e6ebd5}
+.joinbox button{font:inherit;font-weight:700;font-size:13px;letter-spacing:.06em;padding:14px;background:var(--green);color:#fff;border:0;cursor:pointer}
+.joinbox .btn{margin-top:18px;border-color:#fff;color:#fff}
+
+footer{background:var(--green);color:#9aa39a;padding:40px 0;font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer b{color:var(--paper);font-family:var(--serif);display:block;margin-bottom:6px;font-size:14px}
+
+@media (max-width:820px){
+  nav{display:none}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero .frame{min-height:260px;border-right:0;border-bottom:1px solid var(--line)}
+  .hero .txt{padding:40px 0}
+  .nums .wrap{grid-template-columns:1fr 1fr}
+  .nums div:nth-child(2){border-right:0}
+  .mission li{grid-template-columns:1fr;gap:10px}
+  .mission .frame{justify-self:start;max-width:none}
+  .report .grid,.joinbox .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!--
+  ┌──────────────────────────────────────────────────────────────┐
+  │  Forest 스타일 홈페이지 템플릿 (학생회 · 비영리 · 시민단체)            │
+  │  1. 예시 텍스트(푸른숲 네트워크 · 숫자 · 공지)를 본인 것으로 교체       │
+  │  2. photo-slot div 를 <img class="photo" src="..."> 로 교체     │
+  │  3. 후원 · 가입: 계좌 · 구글폼 링크로 교체                             │
+  │  4. 색: :root 의 --green(배경) --olive(포인트) --paper(본문 배경)   │
+  └──────────────────────────────────────────────────────────────┘
+-->
+
+<div class="topbar"><b>3.14 (토)</b> 3월 정기 정화 활동 — 안양천 구간 · 09:00 예시역 2번 출구 집합</div>
+<header>
+  <div class="wrap">
+    <a href="#" class="brand">푸른숲 <i>네트워크</i></a>
+    <nav><a href="#mission">미션</a><a href="#report">활동</a><a href="#notice">공지</a><a href="#join">후원 · 가입</a></nav>
+    <a href="#join" class="support">후원하기</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero" style="padding:0">
+    <div class="frame"><div class="photo-slot"><div class="ps-label">Hero Photo</div><div class="ps-hint">세로 · 활동 현장</div></div></div>
+    <div class="txt">
+      <div class="since">Since 2017 · 예시대학교 발 도시 환경 단체</div>
+      <h1>도시의 숲을 지키는<br><em>가장 작은</em> 단위, 우리.</h1>
+      <p>2017년 예시대학교 학생 12명이 시작했습니다. 매달 한강 · 안양천 정화 활동을 하고, 학교 안 버려진 땅에 나무를 심고, 지역 초등학교에서 환경 수업을 엽니다.</p>
+      <div class="btns"><a href="#join" class="btn fill">회원 가입</a><a href="#report" class="btn">활동 보기</a></div>
+    </div>
+  </section>
+</div>
+
+<div class="nums">
+  <div class="wrap">
+    <div><b>4.2t</b><span>2025 수거한 쓰레기</span></div>
+    <div><b>1,180</b><span>심은 나무 (그루)</span></div>
+    <div><b>48</b><span>환경 수업 (회)</span></div>
+    <div><b>236</b><span>활동 회원</span></div>
+  </div>
+</div>
+
+<section id="mission">
+  <div class="wrap">
+    <div class="sec"><small>Mission</small><h2>세 가지 약속</h2></div>
+    <ul class="mission">
+      <li><div class="no">01</div><div><b>지킨다</b><p>매달 둘째 주 토요일, 한강과 안양천에서 정화 활동. 2025년 한 해 수거한 쓰레기 4.2톤.</p></div><div class="frame"><div class="photo-slot"><div class="ps-label">정화</div></div></div></li>
+      <li><div class="no">02</div><div><b>심는다</b><p>캠퍼스와 지역 공터에 자생 수종을 심고 3년간 관리. 지금까지 나무 1,180그루, 생존율 87%.</p></div><div class="frame"><div class="photo-slot"><div class="ps-label">식재</div></div></div></li>
+      <li><div class="no">03</div><div><b>가르친다</b><p>지역 초등학교 6곳에서 환경 수업 진행. 연 48회, 참여 학생 1,300명. 교재는 회원이 직접 만듭니다.</p></div><div class="frame"><div class="photo-slot"><div class="ps-label">교육</div></div></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="report" id="report">
+  <div class="wrap">
+    <div class="sec"><small>History</small><h2>걸어온 길</h2></div>
+    <div class="grid">
+      <ul>
+        <li><em>2025.11</em><span>예시구청 환경 부문 표창 · 우수 단체 선정</span></li>
+        <li><em>2025.09</em><span>안양천 생태 모니터링 보고서 발간 (회원 22명 참여)</span></li>
+        <li><em>2025.05</em><span>캠퍼스 숲 조성 3차 식재 · 300그루</span></li>
+        <li><em>2025.03</em><span>지역 초등학교 환경 수업 6곳으로 확대</span></li>
+        <li><em>2023.04</em><span>지역 주민 회원 제도 시작 · 첫 시민 참여 식목 행사</span></li>
+        <li><em>2020.09</em><span>캠퍼스 숲 조성 1차 식재 · 예시대학교 후원 협약</span></li>
+        <li><em>2017.04</em><span>예시대학교 학생 12명 창립 · 첫 한강 정화</span></li>
+      </ul>
+      <div class="photos">
+        <div class="frame"><div class="photo-slot"><div class="ps-label">2025 표창</div></div></div>
+        <div class="frame"><div class="photo-slot"><div class="ps-label">식재</div></div></div>
+        <div class="frame"><div class="photo-slot"><div class="ps-label">수업</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="notice" id="notice">
+  <div class="wrap">
+    <div class="sec"><small>Notice</small><h2>공지 · 일정</h2></div>
+    <table>
+      <tr><th>날짜</th><th>내용</th><th>장소 · 비고</th></tr>
+      <tr><td>03.14 SAT</td><td><b>3월 정기 정화 활동 — 안양천 구간</b><small>장갑 · 집게 제공 · 봉사시간 3시간</small></td><td>09:00 예시역 2번 출구</td></tr>
+      <tr><td>03.21 SAT</td><td><b>봄 식재 자원봉사 모집 (선착순 40명)</b><small>봉사시간 4시간 인정</small></td><td>캠퍼스 후문 공터</td></tr>
+      <tr><td>03.28 SAT</td><td><b>신입 회원 오리엔테이션</b><small>단체 소개 · 활동 안내 · 회원증 발급</small></td><td>학생회관 302호 · 14:00</td></tr>
+      <tr><td>04.05 SUN</td><td><b>식목일 기념 시민 참여 행사</b><small>지역 주민 200명 대상 · 묘목 나눔</small></td><td>예시구 공원</td></tr>
+      <tr><td>04.18 SAT</td><td><b>2026 상반기 총회</b><small>사업 보고 · 예산 승인 · 임원 선출</small></td><td>학생회관 대강당</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="joinbox" id="join">
+  <div class="wrap">
+    <div class="sec" style="margin-bottom:28px"><small style="color:#f2f5e6">Support · Join</small><h2 style="color:#fff">한 달에 한 번, 토요일 오전이면 충분합니다.</h2></div>
+    <div class="grid">
+      <div class="card">
+        <h3>회원 가입</h3>
+        <p>정기 활동 참여 · 봉사시간 인정 · 교육 프로그램 우선 신청. 학생이 아니어도 지역 주민 회원으로 함께할 수 있습니다.</p>
+        <form action="mailto:hello@example.com" method="post" enctype="text/plain">
+          <input name="name" placeholder="이름" required>
+          <input name="contact" placeholder="이메일 또는 연락처" required>
+          <select name="type"><option>학생 회원 (월 3,000원)</option><option>지역 주민 회원 (월 5,000원)</option></select>
+          <button type="submit">가입 신청 보내기</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3>후원</h3>
+        <p>회비와 후원금은 전액 활동 물품 · 묘목 · 교육 자료에 사용하고, 매년 총회에서 결산을 공개합니다.</p>
+        <dl>
+          <dt>계좌</dt><dd>예시은행 000-000-000000 (푸른숲 네트워크)</dd>
+          <dt>정기 후원</dt><dd>월 10,000원부터 · 연말 활동 보고서 발송</dd>
+          <dt>물품 후원</dt><dd>장갑 · 집게 · 묘목 · 교육 문구</dd>
+          <dt>대표</dt><dd>오세린 (예시대 환경공학과)</dd>
+          <dt>문의</dt><dd>hello@example.com</dd>
+        </dl>
+        <a href="mailto:hello@example.com?subject=후원 문의" class="btn">후원 문의하기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>푸른숲 네트워크</b>예시시 예시구 예시로 12, 예시대학교 학생회관 302호</div>
+    <div><b>Contact</b>hello@example.com · <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></div>
+    <div><b>© 2026</b>Forest Homepage Template</div>
+  </div>
+</footer>
+</body>
+</html>

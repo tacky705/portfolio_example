@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style>
 /* =====================================================
-   Archive 스타일 — 흰 바탕 · 가는 글자 · 흩뿌린 사진 · 손글씨 낙서
+   Scrap 스타일 — 흰 바탕 · 가는 글자 · 스크랩북 콜라주 · 손글씨 낙서
    색은 아래 :root 만 바꾸면 전체 반영
    ===================================================== */
 :root{
@@ -79,26 +79,26 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
    1140px 디자인 폭 기준. 화면은 fitScale() 로 비례 축소됨.  */
 .hero{position:relative;height:880px;margin-top:20px}
 .hero .c{position:absolute}
-.hero .c1{left:40px;top:250px;width:230px;aspect-ratio:1/1}
-.hero .c2{left:180px;top:400px;width:320px;aspect-ratio:3/4}
-.hero .c3{left:460px;top:40px;width:400px;aspect-ratio:4/3}
-.hero .c4{left:630px;top:440px;width:440px;aspect-ratio:4/3}
-.hero .c5{left:900px;top:220px;width:240px;aspect-ratio:1/1}
-.hero .word{position:absolute;left:880px;top:110px;font-size:62px;font-weight:300;letter-spacing:-.03em}
-.hero .h1{position:absolute;left:330px;top:315px}
-.hero .h2{position:absolute;left:700px;top:815px}
-.hero .h3{position:absolute;left:40px;top:170px}
+.hero .c::after{content:'';position:absolute;left:50%;top:-10px;width:70px;height:20px;margin-left:-35px;background:rgba(255,235,150,.55);transform:rotate(-3deg);border:1px solid rgba(0,0,0,.08)}
+.hero .c1{left:40px;top:50px;width:420px;aspect-ratio:4/3;transform:rotate(-2deg)}
+.hero .c2{left:330px;top:420px;width:250px;aspect-ratio:3/4;transform:rotate(1.5deg)}
+.hero .c3{left:720px;top:40px;width:380px;aspect-ratio:4/3;transform:rotate(1deg)}
+.hero .c4{left:40px;top:460px;width:260px;aspect-ratio:1/1;transform:rotate(-1deg)}
+.hero .c5{left:780px;top:500px;width:320px;aspect-ratio:1/1;transform:rotate(-2.5deg)}
+.hero .word{position:absolute;left:500px;top:120px;font-size:62px;font-weight:300;letter-spacing:-.03em}
+.hero .h1{position:absolute;left:560px;top:260px}
+.hero .h2{position:absolute;left:340px;top:790px}
+.hero .h3{position:absolute;left:640px;top:440px}
 .hero svg.doodle{position:absolute;fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.hero .d-arrow{left:760px;top:112px;width:105px}
-.hero .d-circle{left:170px;top:470px;width:300px}
-.hero .d-clef{left:280px;top:130px;width:90px}
+.hero .d-arrow{left:610px;top:340px;width:105px;transform:rotate(60deg)}
+.hero .d-circle{left:720px;top:440px;width:300px}
+.hero .d-clef{left:470px;top:560px;width:90px}
 
 /* ---- Intro (WELCOME 편집 레이아웃) ---- */
-.intro{padding-block:120px 40px}
-.intro .title{margin-bottom:34px}
-.intro .row{display:grid;grid-template-columns:140px 1fr 200px;gap:24px;align-items:start;margin-top:34px}
-.intro .row p{max-width:560px}
-.intro .row .paren{text-align:right}
+.intro{padding-block:100px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.intro .row{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+.intro .row p{max-width:480px}
+.intro .row .paren{text-align:left}
 
 /* ---- Works 갤러리 (엇갈린 그리드) ---- */
 .works{padding-block:40px 100px}
@@ -107,12 +107,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .works .item .frame{width:100%;overflow:hidden}
 .works .item figcaption{display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);margin-top:10px}
 .works .item figcaption span:last-child{color:var(--mute)}
-.w1{grid-column:4/8}  .w1 .frame{aspect-ratio:1/1}
-.w2{grid-column:8/13;margin-top:110px} .w2 .frame{aspect-ratio:4/3}
-.w3{grid-column:1/5} .w3 .frame{aspect-ratio:3/4}
-.w4{grid-column:5/9;margin-top:70px}  .w4 .frame{aspect-ratio:1/1}
-.w5{grid-column:1/5;margin-top:50px}  .w5 .frame{aspect-ratio:4/3}
-.w6{grid-column:8/12} .w6 .frame{aspect-ratio:3/4}
+.w1{grid-column:1/7}  .w1 .frame{aspect-ratio:4/3}
+.w2{grid-column:8/13;margin-top:140px} .w2 .frame{aspect-ratio:3/4}
+.w3{grid-column:2/6;margin-top:-30px} .w3 .frame{aspect-ratio:1/1}
+.w4{grid-column:7/13;margin-top:60px}  .w4 .frame{aspect-ratio:16/9}
+.w5{grid-column:1/5;margin-top:80px}  .w5 .frame{aspect-ratio:3/4}
+.w6{grid-column:6/10;margin-top:20px} .w6 .frame{aspect-ratio:1/1}
 .works .foot{display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:end;margin-top:80px}
 .works .foot .paren{text-align:right}
 
@@ -193,7 +193,7 @@ footer .wrap{display:flex;justify-content:space-between;font-size:12px;color:rgb
 
 <!--
   ┌──────────────────────────────────────────────────────────────┐
-  │  Archive 스타일 포트폴리오 템플릿 (음악 · 공연 · 예술 전공용)      │
+  │  Scrap 스타일 포트폴리오 템플릿 (음악 · 공연 · 예술 전공용)      │
   │  1. 예시 텍스트(김서연 · 예시대학교 · 작품명 · 숫자)를 본인 것으로 교체 │
   │  2. photo-slot div 를 <img class="photo" src="..."> 로 교체     │
   │  3. Featured 의 media 자리는 YouTube 퍼가기 <iframe> 으로 교체   │
@@ -205,8 +205,8 @@ footer .wrap{display:flex;justify-content:space-between;font-size:12px;color:rgb
 <header>
   <div class="wrap nav">
     <nav class="links">
-      <a href="#works">Works</a>
       <a href="#about">About</a>
+      <a href="#works">Works</a>
       <a href="#contact">Contact</a>
     </nav>
     <a href="#" class="brand">Kim.</a>
@@ -216,7 +216,7 @@ footer .wrap{display:flex;justify-content:space-between;font-size:12px;color:rgb
 
 <!-- ============ Hero 콜라주 ============ -->
 <section class="hero wrap">
-  <div class="c c1"><div class="photo-slot"><div class="ps-label">Photo 01</div><div class="ps-hint">1:1 · 손 · 건반 클로즈업</div></div></div>
+  <div class="c c1"><div class="photo-slot"><div class="ps-label">Photo 01</div><div class="ps-hint">1:1 · 손 · 활 클로즈업</div></div></div>
   <div class="c c2"><div class="photo-slot"><div class="ps-label">Photo 02</div><div class="ps-hint">3:4 · 전신 프로필</div></div></div>
   <div class="c c3"><div class="photo-slot"><div class="ps-label">Photo 03</div><div class="ps-hint">4:3 · 무대 실황</div></div></div>
   <div class="c c4"><div class="photo-slot"><div class="ps-label">Photo 04</div><div class="ps-hint">4:3 · 리허설 · 흑백</div></div></div>
@@ -225,7 +225,7 @@ footer .wrap{display:flex;justify-content:space-between;font-size:12px;color:rgb
   <div class="word">Violinist.</div>
   <div class="hand h3">2026 recital</div>
   <div class="hand h1">김서연</div>
-  <div class="hand h2">piano · composition</div>
+  <div class="hand h2">violin · chamber</div>
 
   <!-- 낙서: 화살표 -->
   <svg class="doodle d-arrow" viewBox="0 0 150 70"><path d="M4 8c40 4 80 20 120 48"/><path d="M104 60l22-4-8-20"/></svg>
@@ -237,15 +237,40 @@ footer .wrap{display:flex;justify-content:space-between;font-size:12px;color:rgb
 
 <!-- ============ Intro ============ -->
 <section class="intro wrap">
-  <h1 class="display xl reveal">Archive.</h1>
+  <h1 class="display xl reveal">Scrap<br>book.</h1>
   <div class="row reveal">
     <span class="label">Welcome</span>
     <p class="small">
-      예시대학교 음악대학 관현악과 4학년 김서연의 연주 · 실내악 아카이브입니다.
-      클래식으로 기초를 다졌고 재즈 화성과 작곡을 함께 공부합니다.
-      독주회, 협연, 앙상블, 자작곡 EP 까지 — 무대에 올린 것들을 시간순으로 모았습니다.
+      예시대학교 음악대학 관현악과 4학년 김서연의 연주 · 실내악 스크랩북입니다.
+      클래식으로 기초를 다졌고 실내악과 바로크 연주법을 함께 공부합니다.
+      독주회, 협연, 앙상블, 자작곡 EP 까지 — 무대에 올린 것들을 사진과 손글씨로 스크랩했습니다.
     </p>
     <span class="paren">(2026)</span>
+  </div>
+</section>
+
+<!-- ============ About ============ -->
+<section class="about wrap" id="about">
+  <div class="grid">
+    <div class="portrait reveal"><div class="photo-slot"><div class="ps-label">Portrait</div><div class="ps-hint">3:4 · 자연광 · 흑백 권장</div></div></div>
+    <div class="reveal">
+      <span class="label">About</span>
+      <h2 class="display md" style="margin-top:14px">악보 너머의 이야기를<br>찾아내는 연주자.</h2>
+      <ul class="lines">
+        <li>5세에 바이올린을 시작해 클래식으로 기초를 다졌고, 대학에서 실내악과 바로크 연주법을 함께 공부하고 있습니다.</li>
+        <li>정기연주회 · 졸업연주회를 포함해 32회 무대에 섰고, 2025 전국 바이올린 콩쿠르에서 1위를 수상했습니다.</li>
+        <li>현악 4중주, 오케스트라 악장, 뮤지컬 오케스트라 세션 등 장르를 넘나드는 앙상블 경험이 있습니다.</li>
+        <li>자작곡 EP "제목 예시"(6곡)를 작곡 · 편곡 · 믹싱까지 직접 맡아 발매했습니다.</li>
+        <li>초 · 중등 학생 레슨 3년, 유튜브 연주 채널 운영 — 연주만큼 전달하는 일을 좋아합니다.</li>
+      </ul>
+      <div class="facts">
+        <div class="fact"><span>Education</span><div><b>예시대학교 음악대학 관현악과</b> · 2022.03 ~ 재학 중 · 성적우수 장학<br>예시예술고등학교 졸업 (2022)</div></div>
+        <div class="fact"><span>Teachers</span><div>홍교수 사사 (2022~) · 김교수 사사 (2019~2022)<br>2024 예시 국제 마스터클래스 수료</div></div>
+        <div class="fact"><span>Instruments</span><div>Violin (Main) · Viola · Piano (Sub)</div></div>
+        <div class="fact"><span>Languages</span><div>한국어 Native · English Business</div></div>
+        <div class="fact"><span>Based in</span><div>Seoul, South Korea</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -295,7 +320,7 @@ footer .wrap{display:flex;justify-content:space-between;font-size:12px;color:rgb
       <h2 class="display lg" style="margin-top:14px">밤의<br>변주.</h2>
     </div>
     <p class="small">
-      베토벤 소나타 No.23 "열정", 쇼팽 발라드 No.1, 자작곡 3곡으로 구성한 첫 단독 독주회.
+      바흐 파르티타 No.2, 프랑크 소나타, 자작 편곡 3곡으로 구성한 첫 단독 독주회.
       기획 · 프로그램 · 홍보 · 무대 진행까지 직접 맡았습니다.
     </p>
   </div>
@@ -352,31 +377,6 @@ footer .wrap{display:flex;justify-content:space-between;font-size:12px;color:rgb
   </ul>
 </section>
 
-<!-- ============ About ============ -->
-<section class="about wrap" id="about">
-  <div class="grid">
-    <div class="portrait reveal"><div class="photo-slot"><div class="ps-label">Portrait</div><div class="ps-hint">3:4 · 자연광 · 흑백 권장</div></div></div>
-    <div class="reveal">
-      <span class="label">About</span>
-      <h2 class="display md" style="margin-top:14px">악보 너머의 이야기를<br>찾아내는 연주자.</h2>
-      <ul class="lines">
-        <li>5세에 바이올린을 시작해 클래식으로 기초를 다졌고, 대학에서 실내악과 바로크 연주법을 함께 공부하고 있습니다.</li>
-        <li>정기연주회 · 졸업연주회를 포함해 32회 무대에 섰고, 2025 전국 바이올린 콩쿠르에서 1위를 수상했습니다.</li>
-        <li>현악 4중주, 오케스트라 악장, 뮤지컬 오케스트라 세션 등 장르를 넘나드는 앙상블 경험이 있습니다.</li>
-        <li>자작곡 EP "제목 예시"(6곡)를 작곡 · 편곡 · 믹싱까지 직접 맡아 발매했습니다.</li>
-        <li>초 · 중등 학생 레슨 3년, 유튜브 연주 채널 운영 — 연주만큼 전달하는 일을 좋아합니다.</li>
-      </ul>
-      <div class="facts">
-        <div class="fact"><span>Education</span><div><b>예시대학교 음악대학 관현악과</b> · 2022.03 ~ 재학 중 · 성적우수 장학<br>예시예술고등학교 졸업 (2022)</div></div>
-        <div class="fact"><span>Teachers</span><div>홍교수 사사 (2022~) · 김교수 사사 (2019~2022)<br>2024 예시 국제 마스터클래스 수료</div></div>
-        <div class="fact"><span>Instruments</span><div>Violin (Main) · Viola · Piano (Sub)</div></div>
-        <div class="fact"><span>Languages</span><div>한국어 Native · English Business</div></div>
-        <div class="fact"><span>Based in</span><div>Seoul, South Korea</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ Awards 리스트 ============ -->
 <section class="list awards wrap" id="awards">
   <div class="head reveal">
@@ -431,7 +431,7 @@ footer .wrap{display:flex;justify-content:space-between;font-size:12px;color:rgb
 <footer>
   <div class="wrap">
     <div>© 2026 Your Name</div>
-    <div>Archive · Portfolio Template</div>
+    <div>Scrap · Portfolio Template</div>
   </div>
 </footer>
 

@@ -48,12 +48,9 @@ nav a:hover{color:var(--ink)}
 
 /* maker (제작자 소개) */
 .maker{padding:40px 0;background:var(--soft);border-bottom:1px solid var(--line)}
-.maker .grid{display:grid;grid-template-columns:96px 1fr auto;gap:28px;align-items:center}
-.maker .avatar{width:96px;height:96px;border-radius:50%;border:1px solid var(--ink);object-fit:cover}
-.maker .slot{display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mute);background:repeating-linear-gradient(135deg,#e9e9e6 0 10px,#dcdcd8 10px 11px)}
+.maker .grid{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
 .maker .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.maker h2{font-size:24px;font-weight:600;margin-top:4px}
-.maker p{margin-top:8px;font-size:15px;color:var(--ink2);max-width:640px}
+.maker p{margin-top:6px;font-size:15px;color:var(--ink2);max-width:640px}
 .maker p b{font-weight:600;color:var(--ink)}
 .badges{display:flex;flex-direction:column;gap:10px}
 .badges li{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink2);white-space:nowrap}
@@ -135,9 +132,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   .steps{grid-template-columns:repeat(2,1fr)}
   nav a{margin-left:16px}
   .hero{padding:64px 0 48px}
-  .maker .grid{grid-template-columns:72px 1fr}
-  .maker .avatar{width:72px;height:72px}
-  .badges{grid-column:2;flex-direction:row;flex-wrap:wrap}
+  .maker .grid{grid-template-columns:1fr}
+  .badges{flex-direction:row;flex-wrap:wrap}
 }
 @media (max-width:480px){
   .steps{grid-template-columns:1fr}
@@ -165,19 +161,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 <section class="hero">
   <div class="wrap">
     <h1>링크 하나로 보내는<br><b>나만의 포트폴리오 홈페이지</b></h1>
-    <p>콩쿠르 · 오디션 · 대학원 지원 · 이력서 대신. HTML 파일 하나, 서버 없음, 이름과 사진만 바꾸면 5분 안에 내 주소로 올라갑니다. 개인 포트폴리오 <span data-count-personal></span>종 · 단체용 <span data-count-group></span>종 · <span data-seller></span> 제작.</p>
+    <p>콩쿠르 · 오디션 · 대학원 지원 · 이력서 대신. HTML 파일 하나, 서버 없음, 이름과 사진만 바꾸면 5분 안에 내 주소로 올라갑니다. 개인 포트폴리오 <span data-count-personal></span>종 · 단체용 <span data-count-group></span>종.</p>
     <a class="cta" href="#designs">디자인 보기 ↓</a>
   </div>
 </section>
 
-<!-- 제작자 소개: 이름은 아래 <script> 의 SELLER, 나머지 문구는 여기서 직접 수정 -->
+<!-- 제작자 소개: 문구는 여기서 직접 수정 -->
 <section class="maker" id="maker">
   <div class="wrap grid">
-    <!-- 사진: 이 div 를 <img class="avatar" src="me.jpg" alt=""> 로 교체 -->
-    <div class="avatar slot">사진</div>
     <div>
       <div class="kicker">About the maker</div>
-      <h2><span data-seller></span></h2>
       <p>한양대학교 공과대학에 재학 중이며, 세계 최대 ERP 기업 <b>SAP</b> 의 <b>IT 팀</b>에서 근무하고 있습니다. 현업에서 시스템을 다루는 감각으로, 학생과 단체가 이름 · 사진만 바꿔 바로 쓸 수 있는 홈페이지를 만듭니다.</p>
     </div>
     <ul class="badges">
@@ -234,7 +227,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
 <footer>
   <div class="wrap">
-    <div>© <span data-year></span> <span data-seller></span>. All rights reserved.</div>
+    <div>© <span data-year></span> All rights reserved.</div>
     <a data-mail href="#"><span data-contact></span></a>
   </div>
 </footer>
@@ -245,7 +238,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
    - buy 에 결제 링크(크몽 · Gumroad · 토스 결제링크 등) 넣으면 구매하기 버튼이 그리로 감
    - buy 비우면 구매하기 버튼은 CONTACT 로 메일 문의
    ===================================================== */
-const SELLER  = "이정";                // 판매자 이름
+const SELLER  = "";                    // 판매자 이름 (비우면 표시 안 함)
 const CONTACT = "hello@example.com";  // 문의 이메일
 const CATS = {
   personal: { title:"개인 포트폴리오 제작용", sub:"음악 · 예술 · 디자인 · 개발 — 나 한 사람을 소개하는 원페이지" },
@@ -254,12 +247,12 @@ const CATS = {
 const PRODUCTS = [
   /* ---------- 개인 포트폴리오 ---------- */
   { cat:"personal", file:"index.html",     name:"Scrap",   price:39000, for:"음악 · 공연 · 예술",
-    desc:"흰 종이 위에 사진을 흩뿌린 스크랩북. 가는 글자 · 손글씨 낙서 · 아카이브 잡지 느낌.",
-    sections:"콜라주 Hero · 인트로 · Works 갤러리 · Featured(대표 공연 + 영상) · Performances · About · Awards · Skills · Contact",
+    desc:"흰 종이 위에 사진을 테이프로 붙인 스크랩북. 살짝 기울어진 콜라주 · 가는 글자 · 손글씨 낙서.",
+    sections:"콜라주 Hero · 인트로 2열 · About · Works 엇갈린 그리드 · Featured(대표 공연 + 영상) · Performances · Awards · Skills · Contact",
     buy:"" },
   { cat:"personal", file:"dot.html",       name:"Peach",   price:39000, for:"음악 · 공연 · 예술",
-    desc:"차콜 헤더 밴드를 뚫고 내려오는 대형 사진 · 굵은 글자 · 파란 원 배지 · 살구색 CTA.",
-    sections:"헤더 밴드 + Hello · 히어로 사진 · 배지 · Work 그리드 · About + Selected · CTA 밴드 · 5열 푸터",
+    desc:"차콜 밴드 안 좌 인사 · 우 세로 사진이 밴드 아래로 삐져나옴 · 파란 원 배지 · 살구색 프로필 카드.",
+    sections:"밴드 Hello + 세로 사진 · Work 3열 → 2:1 → 와이드 · Selected 리스트 + 프로필 카드 · CTA · 3열 푸터",
     buy:"" },
   { cat:"personal", file:"classic.html",   name:"Verde",   price:29000, for:"음악 · 공연 · 예술",
     desc:"다크 + 초록 카드형. 숫자 Stats 와 카드로 정돈된 인상. 레퍼토리 · 레슨까지 한 페이지.",
@@ -304,7 +297,7 @@ document.querySelectorAll('[data-mail]').forEach(e => e.href = mail(e.dataset.su
 document.querySelector('[data-count-personal]').textContent = PRODUCTS.filter(p => p.cat === 'personal').length;
 document.querySelector('[data-count-group]').textContent = PRODUCTS.filter(p => p.cat === 'group').length;
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
-document.title = `${SELLER} Templates — 홈페이지 디자인 스토어`;
+document.title = SELLER ? `${SELLER} Templates — 홈페이지 디자인 스토어` : "홈페이지 디자인 스토어";
 
 const preview = p => p.file
   ? `<a class="preview" href="${p.file}" target="_blank" rel="noopener"><iframe src="${p.file}" loading="lazy" title="${p.name} 미리보기" tabindex="-1"></iframe></a>`
